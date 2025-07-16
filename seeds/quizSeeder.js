@@ -1,0 +1,6742 @@
+import mongoose from "mongoose";
+import Question from "../models/Question.js"; // Import the Question model
+
+// A comprehensive list of quiz questions for various categories and difficulties.
+// Each category will have approximately 20 questions for each difficulty level (easy, medium, hard)
+// aiming for 60+ questions per category to support 9 rounds with 15 questions each and allow for retakes.
+const allQuestions = [
+  // --- JavaScript Questions (20 Easy, 20 Medium, 20 Hard) ---
+  // Easy
+  {
+    category: "javascript",
+    questionText: "Which keyword is used to declare a constant in JavaScript?",
+    options: ["var", "let", "const", "static"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the output of `typeof null` in JavaScript?",
+    options: ["null", "object", "undefined", "number"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "How do you write 'Hello World' in an alert box?",
+    options: [
+      "msg('Hello World');",
+      "alert('Hello World');",
+      "msgBox('Hello World');",
+      "console.log('Hello World');",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Which method is used to remove the last element from an array?",
+    options: ["shift()", "unshift()", "pop()", "push()"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is `NaN` in JavaScript?",
+    options: [
+      "Not a Number",
+      "New Array Number",
+      "Null and Number",
+      "Negative Number",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Which symbol is used for single-line comments in JavaScript?",
+    options: ["//", "/* */", "#", "<!-- -->"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "How do you call a function named 'myFunction'?",
+    options: [
+      "call myFunction()",
+      "myFunction()",
+      "call function myFunction",
+      "run myFunction()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which operator is used for strict equality in JavaScript?",
+    options: ["=", "==", "===", "!="],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the result of `2 + '2'` in JavaScript?",
+    options: ["4", "22", "Error", "NaN"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which built-in method returns the length of a string?",
+    options: ["size()", "length()", "len()", "length"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Which method converts a JavaScript object or value to a JSON string?",
+    options: [
+      "JSON.parse()",
+      "JSON.stringify()",
+      "JSON.toObject()",
+      "JSON.toString()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of the `querySelector()` method?",
+    options: [
+      "Selects the first element that matches a specified CSS selector",
+      "Selects all elements that match a specified CSS selector",
+      "Selects an element by its ID",
+      "Selects an element by its class name",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which event occurs when the user clicks on an HTML element?",
+    options: ["onmouseover", "onchange", "onclick", "onmouseclick"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "How do you declare an array in JavaScript?",
+    options: [
+      "var arr = {};",
+      "var arr = [];",
+      "var arr = ();",
+      "var arr = <>;</>",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which of these is not a loop type in JavaScript?",
+    options: ["for loop", "while loop", "do...while loop", "repeat loop"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is hoisting in JavaScript?",
+    options: [
+      "Moving declarations to the top of their scope",
+      "Moving definitions to the bottom of their scope",
+      "A type of error handling",
+      "A way to optimize code",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which function is used to parse a string to an integer?",
+    options: ["parseInt()", "parseFloat()", "toNumber()", "toInteger()"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "What is the correct way to check if a variable `myVar` is undefined?",
+    options: [
+      "myVar === undefined",
+      "myVar == null",
+      "typeof myVar == 'undefined'",
+      "All of the above",
+    ],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "Which method is used to join two or more arrays?",
+    options: ["merge()", "concat()", "join()", "append()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of the `debugger` keyword?",
+    options: [
+      "To log messages to the console",
+      "To stop the execution of the code and open the debugger",
+      "To throw an error",
+      "To define a new variable",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "javascript",
+    questionText: "Explain the concept of 'closure' in JavaScript.",
+    options: [
+      "A function returning another function",
+      "A function having access to its outer function scope even after the outer function has finished executing",
+      "A way to close a function to prevent modification",
+      "A type of loop that closes on completion",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the difference between `==` and `===` operators?",
+    options: [
+      "No difference",
+      "`==` compares value, `===` compares value and type",
+      "`===` compares value, `==` compares value and type",
+      "Both compare value and type",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "How does `bind()` method work in JavaScript?",
+    options: [
+      "It calls a function immediately",
+      "It creates a new function that, when called, has its `this` keyword set to the provided value",
+      "It binds an event listener to an element",
+      "It merges two objects",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is event bubbling in the DOM?",
+    options: [
+      "Events propagating from the target element upwards to the document root",
+      "Events propagating from the document root downwards to the target element",
+      "Events that never propagate",
+      "Events that are handled only by the target element",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of `async/await`?",
+    options: [
+      "To make synchronous code asynchronous",
+      "To handle asynchronous operations more easily and readably",
+      "To define a new type of variable",
+      "To create a new thread",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the difference between `null` and `undefined`?",
+    options: [
+      "No difference",
+      "`null` is an assigned value, `undefined` means a variable has been declared but not assigned a value",
+      "`undefined` is an assigned value, `null` means a variable has been declared but not assigned a value",
+      "Both are keywords for empty values",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "How do you prevent default behavior of an event?",
+    options: [
+      "event.stop()",
+      "event.cancel()",
+      "event.preventDefault()",
+      "event.halt()",
+    ],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain `let`, `const`, and `var` keyword differences.",
+    options: [
+      "`var` is function-scoped, `let` and `const` are block-scoped; `const` cannot be reassigned",
+      "All are block-scoped",
+      "All are function-scoped",
+      "No significant differences",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is a callback function?",
+    options: [
+      "A function that calls itself",
+      "A function passed as an argument to another function",
+      "A function that returns a value",
+      "A function that executes immediately",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of the `map()` method in arrays?",
+    options: [
+      "To iterate over array elements and execute a callback function for each",
+      "To create a new array by calling a provided function on every element in the calling array",
+      "To filter elements based on a condition",
+      "To reduce the array to a single value",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain the concept of 'event delegation'.",
+    options: [
+      "Attaching event listeners to every single element",
+      "Attaching a single event listener to a parent element to manage events for its children",
+      "Delegating event handling to the browser",
+      "Preventing events from propagating",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "What is the 'spread operator' (`...`) used for in JavaScript?",
+    options: [
+      "To combine strings",
+      "To expand an iterable (like an array) into individual elements",
+      "To perform mathematical operations",
+      "To define new variables",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "How do you handle errors in asynchronous JavaScript using `try...catch`?",
+    options: [
+      "You can't directly with callbacks",
+      "Using `try...catch` with `async/await`",
+      "Only with `Promise.catch()`",
+      "By ignoring errors",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of `WeakMap` and `WeakSet`?",
+    options: [
+      "To store strong references to objects",
+      "To store weak references to objects, allowing garbage collection",
+      "To improve performance of maps and sets",
+      "They are deprecated",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain the concept of 'currying' in JavaScript.",
+    options: [
+      "A technique of converting a function that takes multiple arguments into a sequence of functions that each take a single argument",
+      "A way to flatten arrays",
+      "A method for deep cloning objects",
+      "A type of data encryption",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is a 'generator function' in JavaScript?",
+    options: [
+      "A function that generates random numbers",
+      "A function that can be paused and resumed, yielding multiple values over time",
+      "A function that generates HTML elements",
+      "A function that creates new functions",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "How do you achieve immutability in JavaScript?",
+    options: [
+      "By using `var` keyword",
+      "By deeply cloning objects or using libraries like Immer",
+      "By directly modifying objects",
+      "It's not possible",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of `Proxy` objects in JavaScript?",
+    options: [
+      "To create copies of objects",
+      "To define custom behavior for fundamental operations (e.g., property lookup, assignment, enumeration)",
+      "To send network requests",
+      "To manage browser history",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain `Promise.all()` and `Promise.race()`.",
+    options: [
+      "Both wait for all promises to resolve",
+      "`Promise.all()` waits for all promises to resolve, `Promise.race()` returns the first promise that settles (resolves or rejects)",
+      "Both return the first resolved promise",
+      "They are used for error handling only",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the purpose of the `Symbol` data type?",
+    options: [
+      "To create unique identifiers for object properties",
+      "To represent large integers",
+      "To perform mathematical calculations",
+      "To define a new type of variable",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "javascript",
+    questionText: "Describe the event loop in JavaScript.",
+    options: [
+      "A loop that continuously checks for new events",
+      "The mechanism that JavaScript uses to handle asynchronous callbacks",
+      "A type of `for` loop",
+      "A way to prevent infinite loops",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain prototypal inheritance in JavaScript.",
+    options: [
+      "Objects inherit properties and methods from other objects",
+      "Classes inherit from other classes",
+      "Functions inherit from other functions",
+      "Variables inherit from other variables",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "What is `this` keyword in arrow functions?",
+    options: [
+      "It refers to the global object",
+      "It refers to the object that calls the function",
+      "It inherits `this` from the enclosing lexical context",
+      "It is always `undefined`",
+    ],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Differentiate between `call()`, `apply()`, and `bind()` methods.",
+    options: [
+      "They are all the same",
+      "They are used to set the `this` context, but differ in how arguments are passed and if they return a new function",
+      "They are used for event handling",
+      "They are used for object creation",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "How do Promises help in handling asynchronous code?",
+    options: [
+      "They make asynchronous code synchronous",
+      "They provide a cleaner way to handle asynchronous operations and avoid callback hell",
+      "They are a replacement for loops",
+      "They are used for error handling only",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain the concept of 'memoization' in JavaScript.",
+    options: [
+      "A technique for caching the results of expensive function calls and returning the cached result when the same inputs occur again",
+      "A way to store data in local storage",
+      "A method for encrypting data",
+      "A type of function that remembers its arguments",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "What is the concept of 'higher-order functions'?",
+    options: [
+      "Functions that operate on other functions, either by taking them as arguments or by returning them",
+      "Functions that are executed with elevated privileges",
+      "Functions that are defined globally",
+      "Functions that have a higher priority in execution",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Describe the 'Temporal Dead Zone' (TDZ) for `let` and `const`.",
+    options: [
+      "A period of time during which `let` and `const` variables cannot be accessed after declaration but before initialization",
+      "A memory leak area",
+      "A place where variables are garbage collected",
+      "A security feature in JavaScript",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "What is `Event Delegation` and why is it useful?",
+    options: [
+      "Attaching multiple event listeners to the same element",
+      "Attaching a single event listener to a parent element to handle events for its children, improving performance and memory usage",
+      "Delegating event handling to the browser's default behavior",
+      "A method to stop event propagation",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain `Service Workers` and their use cases.",
+    options: [
+      "Scripts that run in the background, separate from a web page, enabling features like offline experiences, push notifications, and background sync",
+      "Workers that handle server-side logic",
+      "A type of web worker for heavy computations",
+      "A tool for debugging web applications",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "What is the difference between `localStorage` and `sessionStorage`?",
+    options: [
+      "No difference, they are interchangeable",
+      "`localStorage` persists data across browser sessions, `sessionStorage` clears data when the browser tab is closed",
+      "Both clear data when the browser tab is closed",
+      "Both persist data indefinitely",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain the concept of `WebAssembly` (Wasm).",
+    options: [
+      "A new programming language for web development",
+      "A binary instruction format for a stack-based virtual machine, designed as a portable compilation target for programming languages",
+      "A JavaScript framework for building user interfaces",
+      "A tool for optimizing CSS",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "What are `Web Workers` and when would you use them?",
+    options: [
+      "JavaScript files that run on the server",
+      "Scripts that run in the background thread, separate from the main execution thread, useful for heavy computations to prevent UI blocking",
+      "Workers that manage database connections",
+      "A type of CSS preprocessor",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Describe `CORS` (Cross-Origin Resource Sharing) and how it's handled in web development.",
+    options: [
+      "A security feature that restricts web pages from making requests to a different domain than the one that served the web page, handled by server-side headers",
+      "A way to share resources between different tabs of the same origin",
+      "A method for optimizing image loading",
+      "A protocol for real-time communication",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Explain `Event Capturing` vs `Event Bubbling`.",
+    options: [
+      "Capturing is from target to root, Bubbling is from root to target",
+      "Capturing is from root to target, Bubbling is from target to root",
+      "They are the same concept",
+      "Only one can exist at a time",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "What is the purpose of `Object.freeze()` and `Object.seal()`?",
+    options: [
+      "Both make objects immutable",
+      "`freeze()` makes an object immutable (no changes, additions, deletions), `seal()` prevents adding/deleting properties but allows modification of existing ones",
+      "Both allow all modifications",
+      "They are used for deep cloning",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "How does `requestAnimationFrame` work and why is it preferred for animations?",
+    options: [
+      "It runs animations at a fixed interval, causing jank",
+      "It schedules a function to run before the browser's next repaint, synchronizing with the browser's rendering cycle for smoother animations",
+      "It only works for CSS animations",
+      "It's a deprecated method",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "Explain the concept of `Tree Shaking` in JavaScript bundling.",
+    options: [
+      "A method to remove dead code from the final bundle, reducing its size",
+      "A way to organize files in a tree structure",
+      "A technique for optimizing DOM manipulation",
+      "A type of error handling",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText:
+      "What are `Set` and `Map` data structures and their advantages?",
+    options: [
+      "They are just like arrays and objects",
+      "`Set` stores unique values, `Map` stores key-value pairs (any type of key), offering better performance for certain operations than arrays/objects",
+      "They are used for mathematical operations",
+      "They are deprecated features",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "javascript",
+    questionText: "Describe the concept of `Polyfills` in web development.",
+    options: [
+      "Code that implements a feature that is not supported by a browser, allowing older browsers to use newer JavaScript features",
+      "A type of CSS framework",
+      "A tool for minifying JavaScript code",
+      "A method for debugging browser issues",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+
+  // --- Python Questions (20 Easy, 20 Medium, 20 Hard) ---
+  // Easy
+  {
+    category: "python",
+    questionText:
+      "Which of the following is used to define a block of code in Python?",
+    options: ["Parentheses", "Curly braces", "Indentation", "Keywords"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is the output of `print(type([]))`?",
+    options: [
+      "<class 'list'>",
+      "<class 'array'>",
+      "<class 'tuple'>",
+      "<class 'dict'>",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "How do you create a single-line comment in Python?",
+    options: [
+      "// This is a comment",
+      "# This is a comment",
+      "/* This is a comment */",
+      "<!-- This is a comment -->",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "Which function is used to get input from the user in Python?",
+    options: ["get_input()", "read()", "input()", "receive()"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is the correct operator for exponentiation in Python?",
+    options: ["^", "**", "//", "%"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "Which of these is a mutable data type in Python?",
+    options: ["Tuple", "String", "List", "Integer"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is the output of `print('hello' + 'world')`?",
+    options: ["hello world", "helloworld", "hello+world", "Error"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "Which method is used to add an element to the end of a list?",
+    options: ["insert()", "add()", "append()", "extend()"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What does `pip` stand for in Python?",
+    options: [
+      "Python Install Package",
+      "Preferred Installer Program",
+      "Package Installer for Python",
+      "Program in Python",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "Which of the following is not a valid variable name in Python?",
+    options: ["_myvar", "myVar", "2myvar", "my_var"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of the `range()` function?",
+    options: [
+      "To generate a random number",
+      "To create a sequence of numbers",
+      "To define a range of values",
+      "To calculate the range of an array",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "Which module is used to work with regular expressions in Python?",
+    options: ["regex", "re", "regexp", "pattern"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is a dictionary in Python?",
+    options: [
+      "An ordered collection of items",
+      "A mutable, unordered collection of key-value pairs",
+      "An immutable sequence of items",
+      "A collection of unique elements",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "How do you remove an element from a list by its value?",
+    options: [
+      "list.delete(value)",
+      "list.remove(value)",
+      "list.pop(value)",
+      "list.erase(value)",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "What is the purpose of the `__init__` method in Python classes?",
+    options: [
+      "To destroy an object",
+      "To initialize the attributes of an object",
+      "To define a static method",
+      "To create a new class",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "Which data type is used to store a sequence of characters in Python?",
+    options: ["char", "string", "text", "str"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText:
+      "How do you check the version of Python installed on your system?",
+    options: [
+      "python --version",
+      "py -v",
+      "python -version",
+      "python.version()",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "Which of the following is an immutable data type?",
+    options: ["list", "dict", "set", "tuple"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `len()` function?",
+    options: [
+      "To convert to string",
+      "To find the length of a sequence or collection",
+      "To create a list",
+      "To sort elements",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "python",
+    questionText: "How do you convert a string to an integer in Python?",
+    options: ["str_to_int()", "int()", "to_integer()", "parse_int()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "python",
+    questionText: "Explain the concept of 'list comprehension' in Python.",
+    options: [
+      "A way to create lists using a loop and conditions in a single line",
+      "A method for compressing lists",
+      "A built-in function for list manipulation",
+      "A way to convert lists to tuples",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is the Global Interpreter Lock (GIL) in Python?",
+    options: [
+      "A mechanism that allows multiple threads to execute Python bytecode in parallel",
+      "A lock that prevents multiple threads from executing Python bytecode simultaneously in the same process",
+      "A tool for debugging multi-threaded applications",
+      "A feature that optimizes Python code execution",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText:
+      "Differentiate between `append()` and `extend()` methods for lists.",
+    options: [
+      "`append()` adds a single element, `extend()` adds elements of an iterable",
+      "No difference, they do the same thing",
+      "`append()` adds elements to the beginning, `extend()` to the end",
+      "`append()` works on strings, `extend()` on lists",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is a decorator in Python?",
+    options: [
+      "A function that modifies the behavior of another function or class",
+      "A variable that stores a function",
+      "A type of loop",
+      "A way to define a new class",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "Explain the difference between `is` and `==` operators.",
+    options: [
+      "`is` compares values, `==` compares object identity",
+      "`is` compares object identity, `==` compares values",
+      "No difference, they are interchangeable",
+      "Both compare object identity and values",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is a generator in Python?",
+    options: [
+      "A function that returns a value only once",
+      "A function that can be paused and resumed, yielding a sequence of values",
+      "A function that generates random numbers",
+      "A class that creates objects",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "How do you handle exceptions in Python?",
+    options: [
+      "Using `if/else` statements",
+      "Using `try`, `except`, `finally` blocks",
+      "Using `switch` statements",
+      "Python does not have exception handling",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is a `lambda` function in Python?",
+    options: [
+      "A named function",
+      "An anonymous, single-expression function",
+      "A function that returns a list",
+      "A function used for looping",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "Explain the concept of 'scope' in Python (LEGB rule).",
+    options: [
+      "Local, Enclosing, Global, Built-in",
+      "List, Element, Global, Bytes",
+      "Loop, External, General, Binary",
+      "Local, External, Global, Block",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `__name__ == '__main__'`?",
+    options: [
+      "To define the main function",
+      "To check if the script is being run directly or imported as a module",
+      "To declare a global variable",
+      "To start a new process",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "How does Python's garbage collection work?",
+    options: [
+      "Manual memory management",
+      "Reference counting and generational garbage collection",
+      "Using a stack-based approach",
+      "It does not have garbage collection",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is `*args` and `**kwargs` used for?",
+    options: [
+      "To define mandatory arguments",
+      "To pass a variable number of non-keyword and keyword arguments to a function",
+      "To unpack lists and dictionaries",
+      "To define default arguments",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText:
+      "Explain the concept of 'dunder methods' (e.g., `__str__`, `__repr__`).",
+    options: [
+      "Methods that start and end with double underscores, used for operator overloading and special behaviors",
+      "Methods that are only for internal use",
+      "Methods that are deprecated",
+      "Methods that are always private",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `enumerate()` function?",
+    options: [
+      "To count elements in a list",
+      "To iterate over an iterable with a counter",
+      "To enumerate all possible permutations",
+      "To check if an element exists",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "How do you perform deep copy and shallow copy in Python?",
+    options: [
+      "Both copy all nested objects",
+      "`copy.copy()` for shallow, `copy.deepcopy()` for deep",
+      "Python only supports shallow copy",
+      "Python only supports deep copy",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is a `set` in Python?",
+    options: [
+      "An ordered collection that allows duplicates",
+      "An unordered collection of unique elements",
+      "A key-value pair collection",
+      "A sequence of characters",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "Explain the concept of 'iterators' and 'iterables'.",
+    options: [
+      "Iterables are objects that can be iterated over, iterators are objects that remember their state during iteration",
+      "They are the same thing",
+      "Iterators are always lists, iterables are always tuples",
+      "Iterables are functions, iterators are variables",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `with` statement in Python?",
+    options: [
+      "To define a new block of code",
+      "To simplify exception handling and ensure resources are properly managed (e.g., file handling)",
+      "To create a new variable scope",
+      "To loop through a collection",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "How do you open and read a file in Python?",
+    options: [
+      "`read_file()`",
+      "`open()` and `read()` methods",
+      "`load_file()`",
+      "`get_file()`",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `super()` in Python?",
+    options: [
+      "To call the current class's method",
+      "To call a method from the parent or sibling class in a multiple inheritance hierarchy",
+      "To define a static method",
+      "To create a new instance of a class",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "python",
+    questionText:
+      "Describe Python's MRO (Method Resolution Order) in multiple inheritance.",
+    options: [
+      "The order in which methods are resolved in a class hierarchy, following C3 linearization algorithm",
+      "The order in which classes are imported",
+      "The order of method execution in a single class",
+      "A random order of method resolution",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "Explain the concept of metaclasses in Python.",
+    options: [
+      "Classes that define other classes",
+      "Classes that are used for inheritance only",
+      "Classes that cannot be instantiated",
+      "Classes that are used for abstract methods",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `__slots__` in Python classes?",
+    options: [
+      "To define static variables",
+      "To declare class methods",
+      "To save memory by preventing the creation of instance dictionaries",
+      "To enforce strict typing",
+    ],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "How does Python handle memory management?",
+    options: [
+      "Manual memory allocation and deallocation",
+      "Automatic garbage collection (reference counting and generational garbage collection)",
+      "Using a stack-based memory model",
+      "Through direct interaction with hardware",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText:
+      "Explain the difference between `yield` and `return` in Python functions.",
+    options: [
+      "`yield` is used in regular functions, `return` in generators",
+      "`yield` makes a function a generator, pausing execution and returning a value; `return` terminates the function",
+      "No difference, they are interchangeable",
+      "`yield` is for asynchronous operations, `return` for synchronous",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "Describe the concept of 'descriptors' in Python.",
+    options: [
+      "Objects that implement the descriptor protocol (`__get__`, `__set__`, `__delete__`) and are used for attribute access",
+      "Functions that describe other functions",
+      "Variables that store metadata about classes",
+      "A type of data structure for linked lists",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText:
+      "What is the difference between `__new__` and `__init__` methods?",
+    options: [
+      "`__new__` creates the instance, `__init__` initializes it",
+      "They are interchangeable",
+      "`__new__` is for static methods, `__init__` for instance methods",
+      "Only `__init__` is used for object creation",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "Explain the concept of 'coroutine' in Python.",
+    options: [
+      "A function that runs in parallel",
+      "A generator that can consume values as well as produce them, allowing for more complex asynchronous programming",
+      "A type of thread",
+      "A function that always returns a promise",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is `asyncio` in Python?",
+    options: [
+      "A library for synchronous programming",
+      "A library for writing concurrent code using the `async/await` syntax",
+      "A database connector",
+      "A web framework",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText:
+      "Describe the 'Context Manager' protocol and its use with the `with` statement.",
+    options: [
+      "A protocol that defines `__enter__` and `__exit__` methods, used to manage resources that need to be set up and torn down",
+      "A way to manage global variables",
+      "A method for handling network connections",
+      "A tool for debugging memory leaks",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is a 'closure' in Python?",
+    options: [
+      "A function that returns another function",
+      "A function that remembers the values from its enclosing lexical scope even if the outer function has finished executing",
+      "A way to close a file",
+      "A type of loop",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "Explain 'Monkey Patching' in Python.",
+    options: [
+      "Modifying a class or module at runtime to change its behavior",
+      "A debugging technique for finding errors",
+      "A way to optimize code performance",
+      "A method for securing applications",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is the purpose of `functools.lru_cache`?",
+    options: [
+      "To clear the cache",
+      "To implement a Least Recently Used (LRU) cache for function results, improving performance for expensive computations",
+      "To encrypt data",
+      "To manage file system operations",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText:
+      "Describe the concept of 'Abstract Base Classes' (ABCs) in Python.",
+    options: [
+      "Classes that cannot be instantiated directly and are meant to be inherited, often defining abstract methods that must be implemented by subclasses",
+      "Classes that are always empty",
+      "Classes that only contain static methods",
+      "Classes that are used for data storage only",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "How do you implement a custom iterator in Python?",
+    options: [
+      "By using the `for` loop",
+      "By implementing `__iter__` and `__next__` methods in a class",
+      "By using a generator function only",
+      "Python doesn't allow custom iterators",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is `type hinting` in Python?",
+    options: [
+      "A way to enforce strict data types at runtime",
+      "Adding annotations to function parameters and return values to indicate expected types, primarily for static analysis and IDE support",
+      "A method for type conversion",
+      "A debugging tool",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText:
+      "Explain the concept of 'Serialization' and 'Deserialization' in Python.",
+    options: [
+      "Converting an object into a stream of bytes (serialization) and reconstructing it back (deserialization), often using `pickle` or `json` modules",
+      "Encrypting and decrypting data",
+      "Compressing and decompressing files",
+      "Storing and retrieving data from a database",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What is a 'thread' vs 'process' in Python?",
+    options: [
+      "Threads are independent programs, processes are sub-units",
+      "Processes are independent programs with their own memory space, threads are sub-units within a process sharing memory",
+      "They are interchangeable terms",
+      "Python only supports threads",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "Describe the purpose of `virtual environments` in Python.",
+    options: [
+      "To create virtual machines",
+      "To create isolated Python environments for projects, managing dependencies without conflicts",
+      "To run Python code in a web browser",
+      "To simulate network connections",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "python",
+    questionText: "What are 'generators' vs 'iterators' in Python?",
+    options: [
+      "Generators are a type of iterator, created using `yield` keyword, providing a more concise way to create iterators",
+      "Iterators are a type of generator",
+      "They are completely different concepts",
+      "Generators are for loops, iterators are for functions",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+
+  // --- SQL Questions (20 Easy, 20 Medium, 20 Hard) ---
+  // Easy
+  {
+    category: "sql",
+    questionText: "Which SQL command is used to retrieve data from a database?",
+    options: ["UPDATE", "INSERT", "SELECT", "DELETE"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "Which keyword is used to sort the result-set?",
+    options: ["SORT BY", "ORDER BY", "ARRANGE BY", "GROUP BY"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "Which SQL statement is used to update data in a database?",
+    options: ["MODIFY", "ALTER", "UPDATE", "CHANGE"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "Which SQL statement is used to delete data from a database?",
+    options: ["REMOVE", "ERASE", "DELETE", "DROP"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What does DDL stand for in SQL?",
+    options: [
+      "Data Definition Language",
+      "Data Manipulation Language",
+      "Data Control Language",
+      "Database Design Language",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which constraint ensures that all values in a column are different?",
+    options: ["PRIMARY KEY", "FOREIGN KEY", "UNIQUE", "NOT NULL"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which clause is used to combine rows from two or more tables, based on a related column between them?",
+    options: ["UNION", "JOIN", "MERGE", "COMBINE"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What is the purpose of the `COUNT()` function?",
+    options: [
+      "To sum values",
+      "To find the average",
+      "To count the number of rows that matches a specified criterion",
+      "To find the maximum value",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which operator is used to search for a specified pattern in a column?",
+    options: ["IN", "BETWEEN", "LIKE", "EXISTS"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What does `PRIMARY KEY` constraint do?",
+    options: [
+      "Uniquely identifies each record in a table",
+      "Ensures that a column cannot have NULL values",
+      "Links two tables together",
+      "Restricts the values that can be inserted into a column",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "Which SQL command is used to add new rows to a table?",
+    options: ["ADD ROW", "INSERT INTO", "NEW ROW", "ADD DATA"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What is the purpose of the `WHERE` clause?",
+    options: [
+      "To group results",
+      "To filter records based on a specified condition",
+      "To order results",
+      "To select columns",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which aggregate function returns the average value of a numeric column?",
+    options: ["SUM()", "MAX()", "AVG()", "MIN()"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What does DML stand for in SQL?",
+    options: [
+      "Data Definition Language",
+      "Data Manipulation Language",
+      "Data Control Language",
+      "Database Model Language",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which operator tests for the absence of any value in a column?",
+    options: ["IS NULL", "IS EMPTY", "NULL CHECK", "HAS NO VALUE"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "Which SQL command is used to create a new table?",
+    options: ["ADD TABLE", "NEW TABLE", "CREATE TABLE", "BUILD TABLE"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `FOREIGN KEY`?",
+    options: [
+      "A key that uniquely identifies a record",
+      "A key that links two tables together",
+      "A key that cannot be null",
+      "A key that must be unique",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Which clause is used with aggregate functions to filter groups?",
+    options: ["WHERE", "ORDER BY", "GROUP BY", "HAVING"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "What is the result of `SELECT 5 + 3;`?",
+    options: ["53", "8", "Error", "NULL"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "sql",
+    questionText: "How do you select distinct values from a column?",
+    options: [
+      "SELECT UNIQUE column",
+      "SELECT DIFFERENT column",
+      "SELECT DISTINCT column",
+      "SELECT ONE column",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "sql",
+    questionText:
+      "Differentiate between `DELETE`, `TRUNCATE`, and `DROP` statements.",
+    options: [
+      "`DELETE` removes rows, `TRUNCATE` removes all rows and resets identity, `DROP` removes the entire table",
+      "They all do the same thing",
+      "`DELETE` is faster than `TRUNCATE`",
+      "`DROP` only removes data, not table structure",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Explain the concept of SQL Joins (INNER, LEFT, RIGHT, FULL).",
+    options: [
+      "They combine rows from two or more tables based on a related column, differing in how they handle unmatched rows",
+      "They are used to create new tables",
+      "They are used to filter data",
+      "They are used to update data",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a subquery in SQL?",
+    options: [
+      "A query inside another query",
+      "A query that updates data",
+      "A query that deletes data",
+      "A query that creates a new table",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is the difference between `UNION` and `UNION ALL`?",
+    options: [
+      "`UNION` removes duplicate rows, `UNION ALL` includes duplicates",
+      "No difference",
+      "`UNION` combines columns, `UNION ALL` combines rows",
+      "`UNION` requires same number of columns, `UNION ALL` does not",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Explain the concept of indexing in SQL.",
+    options: [
+      "A way to organize data physically on disk",
+      "A way to speed up data retrieval operations on a database table",
+      "A method for encrypting data",
+      "A process for backing up data",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `VIEW` in SQL?",
+    options: [
+      "A physical table in the database",
+      "A virtual table based on the result-set of an SQL statement",
+      "A temporary table",
+      "A stored procedure",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Differentiate between `VARCHAR` and `NVARCHAR`.",
+    options: [
+      "`VARCHAR` stores variable-length non-Unicode data, `NVARCHAR` stores variable-length Unicode data",
+      "No difference",
+      "`VARCHAR` is for numbers, `NVARCHAR` for text",
+      "`NVARCHAR` is faster",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `Stored Procedure`?",
+    options: [
+      "A SQL query that runs only once",
+      "A prepared SQL code that you can save and reuse",
+      "A type of database trigger",
+      "A function that returns a single value",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `GROUP BY` and `HAVING` clauses.",
+    options: [
+      "`GROUP BY` groups rows that have the same values, `HAVING` filters those groups based on a condition",
+      "Both are used for filtering rows",
+      "Both are used for sorting data",
+      "`GROUP BY` is for columns, `HAVING` is for rows",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `Trigger` in SQL?",
+    options: [
+      "A special type of stored procedure that automatically executes when an event occurs in the database",
+      "A command to start a new transaction",
+      "A function that generates random data",
+      "A way to backup the database",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText:
+      "What is the difference between `ROW_NUMBER()` and `RANK()` functions?",
+    options: [
+      "Both assign a unique rank to each row",
+      "`ROW_NUMBER()` assigns a unique sequential integer to each row within its partition, `RANK()` assigns a rank with ties receiving the same rank and gaps in the sequence",
+      "They are identical",
+      "`RANK()` is faster",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Explain the concept of `Transactions` in SQL.",
+    options: [
+      "A single logical unit of work, ensuring data integrity (ACID properties)",
+      "A way to connect to a database",
+      "A type of query optimization",
+      "A method for data encryption",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `Common Table Expression (CTE)`?",
+    options: [
+      "A temporary named result set that you can reference within a single SQL statement",
+      "A permanent table in the database",
+      "A type of index",
+      "A stored procedure",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Differentiate between `COUNT(*)` and `COUNT(column_name)`.",
+    options: [
+      "`COUNT(*)` counts all rows, `COUNT(column_name)` counts non-NULL values in that column",
+      "They are the same",
+      "`COUNT(*)` is slower",
+      "`COUNT(column_name)` includes NULLs",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is `Normalization` in database design?",
+    options: [
+      "The process of organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity",
+      "Encrypting data in a database",
+      "Optimizing query performance",
+      "Backing up a database",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `Window Functions` in SQL.",
+    options: [
+      "Functions that operate on a set of rows related to the current row, without grouping them into a single output row",
+      "Functions that open new windows",
+      "Functions that operate on entire tables",
+      "Functions used for data conversion",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is `SQL Injection` and how can it be prevented?",
+    options: [
+      "A type of data corruption; prevented by backups",
+      "A code injection technique used to attack data-driven applications; prevented by parameterized queries/prepared statements",
+      "A network attack; prevented by firewalls",
+      "A performance issue; prevented by indexing",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Differentiate between `Clustered` and `Non-Clustered` Indexes.",
+    options: [
+      "Clustered index determines the physical order of data rows, non-clustered does not",
+      "Both create physical copies of data",
+      "Clustered is faster for all operations",
+      "Non-clustered is faster for all operations",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "What is a `Self-Join`?",
+    options: [
+      "Joining a table with another table",
+      "Joining a table to itself",
+      "Joining multiple tables",
+      "Joining a table with a view",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "sql",
+    questionText: "Explain the `HAVING` clause vs `WHERE` clause.",
+    options: [
+      "`WHERE` filters individual rows, `HAVING` filters groups created by `GROUP BY`",
+      "They are interchangeable",
+      "`HAVING` is faster",
+      "`WHERE` is used with aggregate functions",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "sql",
+    questionText: "Describe ACID properties in database transactions.",
+    options: [
+      "Atomicity, Consistency, Isolation, Durability",
+      "Accuracy, Consistency, Integrity, Durability",
+      "Atomicity, Concurrency, Integrity, Data",
+      "Availability, Consistency, Isolation, Durability",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Explain the different types of Normalization in SQL (1NF, 2NF, 3NF, BCNF).",
+    options: [
+      "Processes for organizing columns and tables to minimize data redundancy and improve data integrity",
+      "Methods for encrypting data",
+      "Techniques for optimizing query performance",
+      "Ways to backup and restore databases",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText:
+      "What are SQL Injection attacks and how can they be prevented?",
+    options: [
+      "Attacks that exploit vulnerabilities in SQL queries to gain unauthorized access; prevented by using parameterized queries or prepared statements",
+      "Attacks that overload the database server; prevented by rate limiting",
+      "Attacks that delete data; prevented by strong passwords",
+      "Attacks that modify database schema; prevented by role-based access control",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Differentiate between OLTP and OLAP systems.",
+    options: [
+      "OLTP for transactional processing, OLAP for analytical processing",
+      "OLTP for data warehousing, OLAP for real-time data",
+      "OLTP for small databases, OLAP for large databases",
+      "No significant difference",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Explain the concept of a 'deadlock' in databases and how to resolve it.",
+    options: [
+      "A situation where two or more transactions are waiting for each other to release locks; resolved by detection and rollback or prevention strategies",
+      "A situation where the database server crashes; resolved by restarting the server",
+      "A situation where data is corrupted; resolved by restoring from backup",
+      "A situation where a query runs indefinitely; resolved by query optimization",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText:
+      "Describe the concept of `Materialized Views` and their benefits.",
+    options: [
+      "A view that is dynamically generated each time it's queried",
+      "A database object that contains the results of a query and is stored as a physical table, improving query performance for complex queries",
+      "A temporary view that exists only for the duration of a session",
+      "A view that is encrypted",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `Database Transactions` and their importance.",
+    options: [
+      "A series of operations performed as a single logical unit of work, ensuring data integrity through ACID properties",
+      "A way to connect to a database",
+      "A method for optimizing database queries",
+      "A process for backing up data",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What is `Concurrency Control` in databases?",
+    options: [
+      "Managing simultaneous operations to ensure data integrity and consistency",
+      "Controlling user access to the database",
+      "Optimizing query execution speed",
+      "Managing database backups",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Differentiate between `Row-Level` and `Table-Level` Locks.",
+    options: [
+      "Row-level locks restrict access to individual rows, table-level locks restrict access to the entire table",
+      "Row-level locks are always faster",
+      "Table-level locks are more granular",
+      "They are the same",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `Sharding` in database systems.",
+    options: [
+      "Storing all data on a single server",
+      "A method for horizontal partitioning of data across multiple databases or servers to improve scalability and performance",
+      "A type of database index",
+      "A technique for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What is `CAP Theorem` in distributed systems?",
+    options: [
+      "Consistency, Availability, Partition Tolerance - states that a distributed system can only guarantee two out of three at any given time",
+      "Concurrency, Atomicity, Performance",
+      "Consistency, Accuracy, Performance",
+      "Client, Application, Protocol",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Describe `Two-Phase Commit (2PC)` protocol.",
+    options: [
+      "A protocol to ensure atomicity in distributed transactions, where all participants either commit or abort the transaction",
+      "A method for database backup",
+      "A way to optimize SQL queries",
+      "A security protocol for database access",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What are `Database Denormalization` and when is it used?",
+    options: [
+      "The process of breaking down tables into smaller ones to reduce redundancy",
+      "Intentionally introducing redundancy into a database to improve query performance, often in OLAP systems",
+      "Encrypting database tables",
+      "Adding indexes to tables",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `Database Partitioning` (Horizontal vs Vertical).",
+    options: [
+      "Horizontal partitioning splits rows into separate tables, vertical partitioning splits columns into separate tables",
+      "Both split data across different servers",
+      "Both improve data security",
+      "Both are only for small databases",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What is `NoSQL` and how does it differ from SQL databases?",
+    options: [
+      "A type of SQL database",
+      "Non-relational databases that offer flexible schemas, scalability, and high performance for specific use cases, differing from SQL's rigid schema and ACID properties",
+      "A new version of SQL",
+      "A tool for optimizing SQL queries",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Describe `Replication` in databases.",
+    options: [
+      "Creating a single copy of the database",
+      "Creating and maintaining multiple copies of data to improve availability and fault tolerance",
+      "Encrypting database connections",
+      "Optimizing database queries",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What is `Database Sharding`?",
+    options: [
+      "Storing all data on a single server",
+      "A method for horizontal partitioning of data across multiple databases or servers to improve scalability and performance",
+      "A type of database index",
+      "A technique for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Explain `Optimistic` vs `Pessimistic` Concurrency Control.",
+    options: [
+      "Optimistic assumes conflicts are rare and checks at commit, Pessimistic assumes conflicts are frequent and locks early",
+      "Both use the same locking mechanisms",
+      "Optimistic is always faster",
+      "Pessimistic is always faster",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "What is `Idempotence` in database operations?",
+    options: [
+      "An operation that produces the same result regardless of how many times it is executed",
+      "An operation that can only be executed once",
+      "An operation that always fails",
+      "An operation that is always successful",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "sql",
+    questionText: "Describe `Distributed Transactions`.",
+    options: [
+      "Transactions that occur within a single database",
+      "Transactions that involve multiple independent databases or resources, requiring coordination to maintain atomicity",
+      "Transactions that are always successful",
+      "Transactions that only read data",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- DSA Questions (20 Easy, 20 Medium, 20 Hard) ---
+  // Easy
+  {
+    category: "dsa",
+    questionText:
+      "Which data structure uses FIFO (First In, First Out) principle?",
+    options: ["Stack", "Queue", "Array", "Linked List"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the time complexity of accessing an element in an array by its index?",
+    options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "Which of the following is a non-linear data structure?",
+    options: ["Array", "Linked List", "Queue", "Tree"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the primary advantage of a hash table?",
+    options: [
+      "Ordered data storage",
+      "Fast lookups (average O(1))",
+      "Memory efficiency",
+      "Easy to implement",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Which sorting algorithm has the best average-case time complexity?",
+    options: ["Bubble Sort", "Insertion Sort", "Merge Sort", "Selection Sort"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "Which data structure is used to implement recursion?",
+    options: ["Queue", "Stack", "Linked List", "Tree"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is a `Linked List`?",
+    options: [
+      "A collection of elements stored in contiguous memory locations",
+      "A linear data structure where elements are stored in nodes, and each node points to the next",
+      "A non-linear data structure",
+      "A fixed-size data structure",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the time complexity of adding an element to the end of a dynamic array (like Python list, JS array)?",
+    options: ["O(1) average, O(n) worst-case", "O(n)", "O(log n)", "O(n^2)"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Which search algorithm works on sorted arrays by repeatedly dividing the search interval in half?",
+    options: [
+      "Linear Search",
+      "Jump Search",
+      "Binary Search",
+      "Interpolation Search",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What does `LIFO` stand for in data structures?",
+    options: [
+      "Last In, First Out",
+      "Last In, First On",
+      "List In, First Out",
+      "Linear In, Fast Out",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Which data structure is best for implementing a 'undo' feature?",
+    options: ["Queue", "Stack", "Array", "Hash Table"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is a `Tree` data structure?",
+    options: [
+      "A linear data structure",
+      "A hierarchical data structure consisting of nodes connected by edges",
+      "A collection of key-value pairs",
+      "A data structure for storing graphs",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the time complexity of inserting an element at the beginning of a `Linked List`?",
+    options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Which sorting algorithm is generally considered the fastest for large datasets?",
+    options: ["Bubble Sort", "Insertion Sort", "Quick Sort", "Selection Sort"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is a `Graph`?",
+    options: [
+      "A linear data structure",
+      "A collection of nodes (vertices) and edges (connections)",
+      "A hierarchical data structure",
+      "A collection of key-value pairs",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the primary use of a `Hash Map` (or Dictionary/Object)?",
+    options: [
+      "Storing ordered lists",
+      "Fast key-value lookups",
+      "Implementing queues",
+      "Sorting data",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Which traversal method visits the root node first, then the left subtree, then the right subtree?",
+    options: ["Inorder", "Preorder", "Postorder", "Level-order"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the worst-case time complexity of Bubble Sort?",
+    options: ["O(1)", "O(n)", "O(n log n)", "O(n^2)"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the purpose of a `Min-Heap`?",
+    options: [
+      "To quickly find the maximum element",
+      "To quickly find the minimum element",
+      "To sort elements in descending order",
+      "To store data randomly",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "dsa",
+    questionText: "Which data structure is used in Breadth-First Search (BFS)?",
+    options: ["Stack", "Queue", "Array", "Linked List"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "dsa",
+    questionText: "Explain the difference between a `Stack` and a `Queue`.",
+    options: [
+      "Stack is LIFO, Queue is FIFO",
+      "Stack is FIFO, Queue is LIFO",
+      "Both are LIFO",
+      "Both are FIFO",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the time complexity of searching in a balanced Binary Search Tree (BST)?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe the concept of 'recursion' in algorithms.",
+    options: [
+      "A function calling itself directly or indirectly to solve a problem",
+      "A loop that runs infinitely",
+      "A way to optimize code execution",
+      "A method for sorting data",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is a 'graph' data structure?",
+    options: [
+      "A linear collection of elements",
+      "A collection of nodes (vertices) and edges (connections)",
+      "A hierarchical data structure",
+      "A data structure for storing key-value pairs",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Differentiate between BFS (Breadth-First Search) and DFS (Depth-First Search).",
+    options: [
+      "BFS explores level by level, DFS explores as far as possible along each branch before backtracking",
+      "BFS uses a stack, DFS uses a queue",
+      "BFS is faster than DFS",
+      "No significant difference",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `Merge Sort` algorithm and its time complexity.",
+    options: [
+      "A sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them; O(n^2)",
+      "A divide and conquer sorting algorithm that divides the array into two halves, sorts them recursively, and then merges them; O(n log n)",
+      "A sorting algorithm that places elements into their correct position one by one; O(n^2)",
+      "A sorting algorithm that builds a heap; O(n log n)",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is `Dynamic Programming`?",
+    options: [
+      "A method for solving problems by breaking them down into simpler subproblems and storing the results to avoid recomputation",
+      "A programming paradigm that focuses on changing data structures",
+      "A technique for writing recursive functions",
+      "A way to optimize database queries",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe `Hashing` and `Collision Resolution`.",
+    options: [
+      "A technique for encrypting data; resolving decryption errors",
+      "Mapping data to a fixed-size table; handling situations where two keys map to the same index (e.g., chaining, open addressing)",
+      "A sorting algorithm; resolving merge conflicts",
+      "A search algorithm; resolving search failures",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is an `Adjacency List` vs `Adjacency Matrix` for graph representation?",
+    options: [
+      "Adjacency List uses an array of lists, Adjacency Matrix uses a 2D array; suitable for sparse vs dense graphs respectively",
+      "They are interchangeable",
+      "Adjacency List is only for directed graphs",
+      "Adjacency Matrix is only for undirected graphs",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain the concept of `AVL Trees`.",
+    options: [
+      "A type of binary tree where the difference between the heights of left and right subtrees of any node is at most one",
+      "A tree that is always full",
+      "A tree used for network routing",
+      "A tree that stores only integers",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is `Dijkstra's Algorithm` used for?",
+    options: [
+      "Finding the longest path in a graph",
+      "Finding the shortest paths between nodes in a graph (single-source shortest path)",
+      "Finding cycles in a graph",
+      "Finding the minimum spanning tree",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe `Topological Sort` and when it's used.",
+    options: [
+      "A sorting algorithm for numbers",
+      "A linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge uv, vertex u comes before v; used in task scheduling",
+      "A sorting algorithm for trees",
+      "A method for finding cycles in a graph",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the significance of `Big O Notation`?",
+    options: [
+      "To measure exact execution time",
+      "To describe the upper bound of an algorithm's running time or space complexity as input size grows",
+      "To define the worst-case scenario only",
+      "To measure average performance",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `Binary Search` algorithm and its time complexity.",
+    options: [
+      "A search algorithm that checks each element sequentially; O(n)",
+      "A search algorithm that repeatedly divides the search interval in half; O(log n)",
+      "A search algorithm that works only on unsorted data; O(n)",
+      "A search algorithm that uses hashing; O(1)",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is a `Heap` data structure?",
+    options: [
+      "A linear data structure",
+      "A tree-based data structure that satisfies the heap property (parent is greater/smaller than children)",
+      "A type of hash table",
+      "A graph representation",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Differentiate between `Arrays` and `Linked Lists`.",
+    options: [
+      "Arrays store elements in contiguous memory, Linked Lists store elements in nodes with pointers; arrays offer O(1) access, linked lists O(n) access but O(1) insertion/deletion at ends",
+      "Arrays are dynamic, Linked Lists are static",
+      "Arrays are non-linear, Linked Lists are linear",
+      "No significant difference",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is `Memoization` in the context of dynamic programming?",
+    options: [
+      "A technique of storing the results of expensive function calls and returning the cached result when the same inputs occur again",
+      "A type of encryption",
+      "A method for optimizing loops",
+      "A way to manage memory",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain the `Divide and Conquer` paradigm.",
+    options: [
+      "Solving a problem by breaking it into smaller subproblems, solving them independently, and combining their solutions",
+      "Solving problems by brute force",
+      "Solving problems by iterating through all possibilities",
+      "Solving problems using only recursive functions",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText: "What is `Prim's Algorithm` used for?",
+    options: [
+      "Finding the shortest path in a graph",
+      "Finding the minimum spanning tree in a weighted undirected graph",
+      "Finding cycles in a graph",
+      "Topological sorting",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Describe `Collision` in hashing and common resolution techniques.",
+    options: [
+      "When two different keys hash to the same index; resolved by chaining (linked lists) or open addressing (linear probing, quadratic probing)",
+      "When a hash table becomes full; resolved by resizing",
+      "When data is corrupted; resolved by error correction codes",
+      "When a hash function is too slow; resolved by choosing a faster hash function",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "dsa",
+    questionText: "Explain the working principle of a 'Heap Sort' algorithm.",
+    options: [
+      "It builds a max-heap or min-heap and repeatedly extracts the maximum/minimum element",
+      "It divides the array into two halves and sorts them recursively",
+      "It repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order",
+      "It places elements into their correct position one by one",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the 'Traveling Salesman Problem' and its complexity?",
+    options: [
+      "Finding the shortest path in a graph; P-complete",
+      "Finding the shortest possible route that visits each city exactly once and returns to the origin city; NP-hard",
+      "Finding the longest path in a graph; NP-complete",
+      "Finding all possible paths in a graph; P-complete",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Describe the concept of Dynamic Programming with an example.",
+    options: [
+      "Solving problems by breaking them down into simpler subproblems and storing the results to avoid recomputation (e.g., Fibonacci sequence)",
+      "Solving problems by dividing them into independent subproblems",
+      "Solving problems using a greedy approach",
+      "Solving problems by brute force",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Explain the 'Big O' notation and its significance in algorithm analysis.",
+    options: [
+      "A notation used to classify algorithms by how their running time or space requirements grow as the input size grows",
+      "A way to measure the exact running time of an algorithm",
+      "A programming language feature",
+      "A method for debugging algorithms",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is the difference between a 'B-tree' and a 'Binary Search Tree'?",
+    options: [
+      "B-trees are self-balancing and optimized for disk-based storage, while BSTs are simpler and often memory-based",
+      "B-trees are always faster than BSTs",
+      "BSTs are always faster than B-trees",
+      "They are the same",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe `Kruskal's Algorithm` for Minimum Spanning Tree.",
+    options: [
+      "An algorithm that grows a single tree by adding the closest vertex at each step",
+      "An algorithm that finds the shortest path between two vertices",
+      "An algorithm that finds a minimum spanning tree for a connected, undirected graph by adding edges in increasing order of weights",
+      "An algorithm for topological sorting",
+    ],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "Explain `Trie` (Prefix Tree) data structure and its applications.",
+    options: [
+      "A tree-like data structure used to store a dynamic set or associative array where keys are usually strings, optimized for prefix matching",
+      "A type of binary search tree",
+      "A data structure for storing numbers",
+      "A graph traversal algorithm",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the `Master Theorem` in algorithm analysis?",
+    options: [
+      "A theorem used to solve recurrence relations that arise in divide and conquer algorithms",
+      "A theorem for proving algorithm correctness",
+      "A theorem for optimizing code",
+      "A theorem for analyzing sorting algorithms only",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Differentiate between `NP-Complete` and `NP-Hard` problems.",
+    options: [
+      "NP-Complete problems are NP-Hard problems that can be verified in polynomial time; NP-Hard problems are at least as hard as the hardest problems in NP",
+      "NP-Complete are easier than NP-Hard",
+      "NP-Hard are always solvable in polynomial time",
+      "They are interchangeable terms",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `Amortized Analysis` of algorithms.",
+    options: [
+      "Analyzing the worst-case running time of an algorithm over a sequence of operations, rather than a single operation",
+      "Analyzing the average-case running time",
+      "Analyzing the best-case running time",
+      "Analyzing the memory usage of an algorithm",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe the `Red-Black Tree` data structure.",
+    options: [
+      "A self-balancing binary search tree that maintains balance using color properties (red/black) on nodes",
+      "A tree that only stores red and black values",
+      "A tree used for graphics rendering",
+      "A simple binary tree",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "What is `Floyd-Warshall Algorithm` used for?",
+    options: [
+      "Finding the shortest path from a single source",
+      "Finding the shortest paths between all pairs of vertices in a weighted graph",
+      "Finding cycles in a graph",
+      "Topological sorting",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `Segment Trees` and their applications.",
+    options: [
+      "A tree data structure used for storing information about intervals or segments, allowing for efficient querying of ranges",
+      "A tree used for storing geographical data",
+      "A type of binary search tree",
+      "A data structure for storing strings",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText:
+      "What is `Dynamic Connectivity` problem and how is it solved?",
+    options: [
+      "Checking if two nodes are connected in a static graph; solved by BFS/DFS",
+      "Maintaining connectivity information in a graph that changes over time (edges added/removed); solved by Union-Find or Link-Cut Trees",
+      "Connecting to a database dynamically",
+      "A problem in network routing",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe `Suffix Arrays` and `Suffix Trees`.",
+    options: [
+      "Data structures used for string matching and text processing, providing efficient ways to find patterns in text",
+      "Data structures for numerical operations",
+      "Data structures for graph traversal",
+      "Data structures for image processing",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "What is `Convex Hull` problem?",
+    options: [
+      "Finding the shortest path in a graph",
+      "Finding the smallest convex polygon that contains a given set of points",
+      "Finding the largest circle within a set of points",
+      "Finding the intersection of two polygons",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `A* Search Algorithm`.",
+    options: [
+      "A uninformed search algorithm",
+      "An informed search algorithm that finds the shortest path in a graph using a heuristic function to guide its search",
+      "A greedy search algorithm",
+      "A random search algorithm",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "What is the `Knapsack Problem` (0/1 and Fractional)?",
+    options: [
+      "A problem of finding the shortest path in a graph",
+      "A problem where you need to select items with given weights and values to maximize total value within a capacity constraint (0/1: cannot break items, Fractional: can break items)",
+      "A problem of sorting items by weight",
+      "A problem of finding the minimum number of items",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Describe `Bloom Filters` and their use cases.",
+    options: [
+      "A probabilistic data structure used to test whether an element is a member of a set, with possible false positives but no false negatives; used for spell checkers, caching",
+      "A filter for images",
+      "A data structure for exact set membership testing",
+      "A type of encryption algorithm",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "dsa",
+    questionText: "Explain `Fenwick Tree` (Binary Indexed Tree).",
+    options: [
+      "A data structure that can efficiently update elements and calculate prefix sums in a table of numbers",
+      "A type of binary search tree",
+      "A data structure for storing strings",
+      "A graph traversal algorithm",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+
+  // --- Java Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "java",
+    questionText: "Which keyword is used to define a class in Java?",
+    options: ["class", "Class", "new", "object"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is the entry point for any Java application?",
+    options: ["start()", "main()", "run()", "init()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "Which keyword is used to inherit a class in Java?",
+    options: ["implements", "extends", "inherits", "uses"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is the default value of a boolean variable in Java?",
+    options: ["true", "false", "null", "0"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "Which of these is not a Java access modifier?",
+    options: ["public", "private", "protected", "static"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText:
+      "Which method is used to print output to the console in Java?",
+    options: ["System.out.println()", "console.log()", "print()", "display()"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is the size of `int` data type in Java?",
+    options: ["16 bits", "32 bits", "64 bits", "Depends on JVM"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "Which loop executes at least once?",
+    options: ["for", "while", "do-while", "foreach"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is the purpose of `final` keyword in Java?",
+    options: [
+      "To define a constant",
+      "To prevent inheritance",
+      "To prevent method overriding",
+      "All of the above",
+    ],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "Which operator is used for string concatenation in Java?",
+    options: ["&", "+", ".", "concat()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is `JVM` in Java?",
+    options: [
+      "Java Virtual Machine",
+      "Java Vendor Model",
+      "Java Visual Method",
+      "Java Verified Module",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText:
+      "Which collection allows duplicate elements and maintains insertion order?",
+    options: ["Set", "List", "Map", "Queue"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "What is the superclass of all classes in Java?",
+    options: ["Class", "Object", "System", "Main"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "Which of these is a checked exception?",
+    options: [
+      "NullPointerException",
+      "ArrayIndexOutOfBoundsException",
+      "IOException",
+      "ArithmeticException",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "java",
+    questionText: "How do you create an object of a class `MyClass`?",
+    options: [
+      "MyClass obj;",
+      "new MyClass();",
+      "MyClass obj = new MyClass();",
+      "obj = MyClass();",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "java",
+    questionText: "Explain `Polymorphism` in Java with an example.",
+    options: [
+      "Ability of an object to take on many forms (method overloading/overriding)",
+      "Ability to inherit properties",
+      "Ability to hide data",
+      "Ability to create multiple objects",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Differentiate between `ArrayList` and `LinkedList`.",
+    options: [
+      "`ArrayList` is array-backed, `LinkedList` is doubly-linked; `ArrayList` better for random access, `LinkedList` for insertions/deletions",
+      "No difference",
+      "`ArrayList` is synchronized, `LinkedList` is not",
+      "`LinkedList` is faster for all operations",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is `Abstraction` in Java?",
+    options: [
+      "Hiding the implementation details and showing only the functionality",
+      "Showing all implementation details",
+      "Creating multiple objects",
+      "Inheriting properties",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Explain `Method Overloading` vs `Method Overriding`.",
+    options: [
+      "Overloading: same method name, different parameters; Overriding: same method signature in subclass",
+      "Overloading is compile-time, Overriding is runtime",
+      "Both are compile-time",
+      "Both are runtime",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is the purpose of `super` keyword in Java?",
+    options: [
+      "To call a method from the current class",
+      "To refer to the immediate parent class object",
+      "To define a static method",
+      "To create a new object",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Describe `Garbage Collection` in Java.",
+    options: [
+      "Manual memory management",
+      "Automatic process that reclaims memory occupied by objects that are no longer referenced",
+      "A tool for debugging memory leaks",
+      "A way to encrypt data",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is an `Interface` in Java?",
+    options: [
+      "A class that cannot be instantiated",
+      "A blueprint of a class, containing abstract methods and static/default methods",
+      "A concrete class",
+      "A type of variable",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Explain `Checked` vs `Unchecked` Exceptions.",
+    options: [
+      "Checked exceptions are caught at compile-time, Unchecked at runtime",
+      "Checked exceptions must be handled explicitly, Unchecked do not have to be",
+      "No difference",
+      "Checked exceptions are always errors",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is `Serialization` and `Deserialization` in Java?",
+    options: [
+      "Converting an object into a stream of bytes (serialization) and reconstructing it back (deserialization)",
+      "Encrypting and decrypting data",
+      "Compressing and decompressing files",
+      "Storing and retrieving data from a database",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Differentiate between `final`, `finally`, and `finalize`.",
+    options: [
+      "`final` for constants/immutability, `finally` for code that always executes, `finalize` for garbage collection cleanup",
+      "They are interchangeable",
+      "All are used for error handling",
+      "All are used for memory management",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is a `Thread` in Java?",
+    options: [
+      "A separate program",
+      "A lightweight sub-process, the smallest unit of processing",
+      "A type of variable",
+      "A network connection",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Explain `Encapsulation` in Java.",
+    options: [
+      "Bundling data and methods that operate on the data within a single unit (class), and restricting direct access to some components",
+      "Hiding all data",
+      "Showing all data",
+      "Creating multiple objects",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is `JVM` and `JRE` and `JDK`?",
+    options: [
+      "JVM is Java Virtual Machine, JRE is Java Runtime Environment, JDK is Java Development Kit",
+      "They are all the same",
+      "JVM is for development, JRE for runtime, JDK for testing",
+      "JVM is for compilation, JRE for execution, JDK for debugging",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "Describe `Generics` in Java.",
+    options: [
+      "A feature that allows classes, interfaces, and methods to operate on objects of various types while providing compile-time type safety",
+      "A way to generate random numbers",
+      "A method for code obfuscation",
+      "A tool for performance optimization",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "java",
+    questionText: "What is the `hashCode()` and `equals()` contract?",
+    options: [
+      "If two objects are equal according to the `equals()` method, then their `hashCode()` methods must produce the same integer result",
+      "They are unrelated",
+      "If `hashCode()` is same, objects must be equal",
+      "Only `equals()` is important",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "java",
+    questionText: "Explain `Concurrency` vs `Parallelism` in Java.",
+    options: [
+      "Concurrency is doing multiple things at once, Parallelism is doing multiple things simultaneously",
+      "Concurrency is about structure, Parallelism is about execution",
+      "They are the same",
+      "Java only supports concurrency",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Describe `JVM Architecture`.",
+    options: [
+      "A simple program that runs Java code",
+      "A complex architecture including Classloader, Memory Area, Execution Engine, Native Method Interface, Native Method Libraries",
+      "A hardware component",
+      "A database system",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "What are `Design Patterns` in Java and give an example.",
+    options: [
+      "Solutions to common problems in software design (e.g., Singleton, Factory, Observer)",
+      "A way to design user interfaces",
+      "A method for writing unit tests",
+      "A tool for code generation",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Explain `Spring Framework` core concepts.",
+    options: [
+      "A lightweight, inversion of control (IoC) and aspect-oriented programming (AOP) container for building enterprise applications",
+      "A JavaScript framework",
+      "A database management system",
+      "A mobile development platform",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Differentiate between `HashMap` and `ConcurrentHashMap`.",
+    options: [
+      "`HashMap` is not thread-safe, `ConcurrentHashMap` is thread-safe and designed for concurrent access",
+      "No difference",
+      "`HashMap` is faster in all scenarios",
+      "`ConcurrentHashMap` is deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "What is `Reflection` in Java?",
+    options: [
+      "Ability of a program to examine or modify its own structure and behavior at runtime",
+      "A debugging technique",
+      "A way to optimize code",
+      "A security feature",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText:
+      "Explain `Functional Interfaces` and `Lambda Expressions` in Java 8+.",
+    options: [
+      "Functional Interfaces have exactly one abstract method, allowing them to be used with Lambda Expressions for concise functional programming",
+      "They are used for object-oriented programming only",
+      "They are deprecated features",
+      "They are only for asynchronous operations",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Describe `Stream API` in Java 8+.",
+    options: [
+      "A way to read/write files",
+      "A sequence of elements supporting sequential and parallel aggregate operations, used for processing collections of objects",
+      "A network streaming protocol",
+      "A tool for debugging",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "What is `JVM Class Loading` mechanism?",
+    options: [
+      "Loading classes from the internet",
+      "A three-phase process (Loading, Linking, Initialization) by which the JVM loads `.class` files into memory",
+      "A way to compile Java code",
+      "A method for garbage collection",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Explain `Thread Pools` and their benefits.",
+    options: [
+      "A group of threads that are created and maintained for reuse, reducing overhead of thread creation/destruction and managing concurrency",
+      "A pool of water for threads to swim in",
+      "A way to prevent deadlocks",
+      "A tool for debugging multi-threaded applications",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "What is `JPA` (Java Persistence API)?",
+    options: [
+      "A specification for managing relational data in Java applications, allowing mapping Java objects to database tables",
+      "A JavaScript framework",
+      "A Python library",
+      "A tool for UI design",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "Describe `Spring Boot` and its advantages.",
+    options: [
+      "A framework for building microservices",
+      "A framework that makes it easy to create stand-alone, production-grade Spring-based applications with minimal configuration",
+      "A tool for frontend development",
+      "A database management system",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText:
+      "Explain `Aspect-Oriented Programming (AOP)` in Java (e.g., with Spring AOP).",
+    options: [
+      "A programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns (e.g., logging, security) from the main business logic",
+      "A way to write object-oriented code",
+      "A method for functional programming",
+      "A tool for code generation",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText: "What is `NIO` (New I/O) in Java?",
+    options: [
+      "A replacement for traditional Java I/O, offering non-blocking I/O operations and buffer-based data handling",
+      "A network protocol",
+      "A database access library",
+      "A GUI toolkit",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "java",
+    questionText:
+      "Differentiate between `Fail-Fast` and `Fail-Safe` iterators in Java Collections.",
+    options: [
+      "Fail-Fast iterators throw ConcurrentModificationException if collection is modified during iteration, Fail-Safe iterators do not",
+      "Fail-Fast iterators are faster",
+      "Fail-Safe iterators are always better",
+      "They are the same",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+
+  // --- MongoDB Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "mongodb",
+    questionText: "What type of database is MongoDB?",
+    options: ["Relational", "Document-oriented (NoSQL)", "Graph", "Key-Value"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "In MongoDB, data is stored in `documents`. What are these documents similar to?",
+    options: ["SQL tables", "JSON objects", "XML files", "Plain text files"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which command is used to select a database in MongoDB shell?",
+    options: ["use dbname", "select dbname", "connect dbname", "open dbname"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you insert a single document into a collection?",
+    options: [
+      "db.collection.addOne()",
+      "db.collection.insert()",
+      "db.collection.createOne()",
+      "db.collection.save()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which command is used to find all documents in a collection?",
+    options: [
+      "db.collection.getAll()",
+      "db.collection.find()",
+      "db.collection.query()",
+      "db.collection.retrieve()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "What is a `collection` in MongoDB analogous to in a relational database?",
+    options: ["A row", "A column", "A table", "A database"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used for equality comparison in MongoDB queries?",
+    options: ["$eq", "$equal", "$is", "$match"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you update a single document in MongoDB?",
+    options: [
+      "db.collection.update()",
+      "db.collection.updateOne()",
+      "db.collection.modify()",
+      "db.collection.change()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which command removes a single document from a collection?",
+    options: [
+      "db.collection.delete()",
+      "db.collection.deleteOne()",
+      "db.collection.remove()",
+      "db.collection.erase()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the default port for MongoDB?",
+    options: ["27017", "3306", "8080", "5432"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used for 'greater than' in MongoDB queries?",
+    options: ["$gt", "$greater", "$top", "$max"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you count the number of documents in a collection?",
+    options: [
+      "db.collection.size()",
+      "db.collection.countDocuments()",
+      "db.collection.length()",
+      "db.collection.total()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `_id` field in MongoDB documents?",
+    options: [
+      "A user-defined field",
+      "A mandatory and unique primary key field",
+      "An optional field",
+      "A field for storing timestamps",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which command is used to show all databases?",
+    options: ["show dbs", "list databases", "get dbs", "display dbs"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `mongod`?",
+    options: [
+      "MongoDB client",
+      "MongoDB daemon (the primary process for the database system)",
+      "MongoDB driver",
+      "MongoDB query language",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "mongodb",
+    questionText: "Explain `Embedded Documents` in MongoDB.",
+    options: [
+      "Documents stored in separate collections",
+      "Documents nested within other documents, allowing for rich, hierarchical data models",
+      "Documents that are linked by references",
+      "Documents that are encrypted",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the `Aggregation Pipeline` in MongoDB?",
+    options: [
+      "A way to join collections",
+      "A framework for performing advanced data processing and analysis operations on documents",
+      "A tool for indexing",
+      "A method for data backup",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Differentiate between `_id` and `ObjectId`.",
+    options: [
+      "`_id` is the field name, `ObjectId` is a specific BSON type often used as the default value for `_id`",
+      "They are the same",
+      "`_id` is always a string",
+      "`ObjectId` is always a number",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Sharding` in MongoDB?",
+    options: [
+      "Storing all data on a single server",
+      "A method for distributing data across multiple machines (shards) to support large datasets and high throughput operations",
+      "A type of indexing",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Indexing` in MongoDB and its benefits.",
+    options: [
+      "A way to organize documents physically on disk",
+      "Special data structures that store a small portion of the data in an easy-to-traverse form, improving query performance",
+      "A method for data compression",
+      "A tool for data validation",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Replica Set` in MongoDB?",
+    options: [
+      "A single MongoDB instance",
+      "A group of MongoDB processes that maintain the same data set, providing high availability and data redundancy",
+      "A tool for data migration",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which aggregation stage is used to filter documents?",
+    options: ["$group", "$project", "$match", "$sort"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "How do you perform a `left outer join` equivalent in MongoDB?",
+    options: [
+      "Using `$lookup` in the aggregation pipeline",
+      "MongoDB does not support joins",
+      "Using `db.collection.join()`",
+      "Using `db.collection.merge()`",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Write Concern` in MongoDB?",
+    options: [
+      "A setting that describes the level of acknowledgment requested from MongoDB for write operations",
+      "A concern about data security",
+      "A concern about database performance",
+      "A concern about data consistency",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Read Preference` in MongoDB.",
+    options: [
+      "A setting that determines how clients route read operations to the members of a replica set",
+      "A preference for reading specific data types",
+      "A preference for faster reads",
+      "A preference for reading from the primary node only",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `GridFS` in MongoDB?",
+    options: [
+      "A file system for storing small files",
+      "A specification for storing and retrieving files that exceed the BSON document size limit (16MB)",
+      "A tool for managing database backups",
+      "A method for data compression",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Differentiate between `find()` and `findOne()`.",
+    options: [
+      "`find()` returns a cursor to multiple documents, `findOne()` returns a single document",
+      "They are interchangeable",
+      "`find()` is faster",
+      "`findOne()` is for large datasets",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used to update an array by adding elements to it?",
+    options: ["$set", "$push", "$pull", "$addToSet"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the purpose of `db.collection.createIndex()`?",
+    options: [
+      "To create a new collection",
+      "To build an index on a specified field or fields to improve query performance",
+      "To create a new database",
+      "To create a new document",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `TTL Indexes` in MongoDB.",
+    options: [
+      "Indexes that expire after a certain time, automatically deleting documents from a collection",
+      "Indexes that are only for temporary data",
+      "Indexes that are very fast",
+      "Indexes that are read-only",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "mongodb",
+    questionText:
+      "Describe `Transactions` in MongoDB (multi-document transactions).",
+    options: [
+      "Operations that occur on a single document only",
+      "A sequence of operations performed across multiple documents and collections that are executed as a single, atomic unit, ensuring ACID properties",
+      "A way to backup data",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Change Streams` in MongoDB.",
+    options: [
+      "A way to log database errors",
+      "A feature that allows applications to access real-time data changes as they occur in a collection, database, or deployment",
+      "A tool for data migration",
+      "A method for data compression",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Schema Validation` in MongoDB?",
+    options: [
+      "Enforcing a rigid schema like relational databases",
+      "A feature that allows you to enforce validation rules on documents during inserts and updates, ensuring data quality",
+      "A tool for data encryption",
+      "A method for optimizing queries",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Differentiate between `WiredTiger` and `MMAPv1` storage engines.",
+    options: [
+      "WiredTiger is the default, offers document-level concurrency, compression, and journaling; MMAPv1 is older, offers collection-level locking",
+      "They are interchangeable",
+      "WiredTiger is faster in all scenarios",
+      "MMAPv1 is more memory efficient",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `OpLog` (Operations Log) in MongoDB.",
+    options: [
+      "A log of user queries",
+      "A special capped collection that keeps a rolling record of all operations that modify data in a replica set, used for replication and recovery",
+      "A log of server errors",
+      "A log of network traffic",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Describe `Read Concern` in MongoDB.",
+    options: [
+      "A setting that determines the consistency guarantee for read operations from a replica set",
+      "A concern about data security",
+      "A concern about database performance",
+      "A concern about data integrity",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Compound Index` and `Multikey Index`?",
+    options: [
+      "Compound index includes multiple fields, Multikey index supports indexing array fields",
+      "They are the same",
+      "Both are for single fields",
+      "Both are deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Covered Queries` in MongoDB.",
+    options: [
+      "Queries that only use the `_id` field",
+      "Queries that can be answered entirely using an index, without having to examine any documents from the collection",
+      "Queries that cover multiple collections",
+      "Queries that are very fast",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Partial Index`?",
+    options: [
+      "An index that covers only a subset of the documents in a collection, based on a specified filter expression",
+      "An incomplete index",
+      "An index that is only partially built",
+      "An index that is not fully optimized",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Describe `Text Indexes` in MongoDB.",
+    options: [
+      "Indexes for numerical data",
+      "Indexes that support text search queries on string content in documents",
+      "Indexes for dates",
+      "Indexes for boolean values",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Capped Collections` in MongoDB.",
+    options: [
+      "Collections that can grow indefinitely",
+      "Fixed-size collections that automatically overwrite their oldest entries when they reach their maximum size",
+      "Collections that are encrypted",
+      "Collections that are read-only",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Map-Reduce` in MongoDB and its alternative?",
+    options: [
+      "A data aggregation framework; replaced by Aggregation Pipeline for most use cases",
+      "A way to join collections; replaced by `$lookup`",
+      "A method for indexing; replaced by `createIndex()`",
+      "A tool for data migration; replaced by `mongodump`",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Differentiate between `db.collection.remove()` and `db.collection.deleteMany()`.",
+    options: [
+      "`remove()` is deprecated and `deleteMany()` is preferred for deleting multiple documents",
+      "They are interchangeable",
+      "`remove()` deletes one, `deleteMany()` deletes many",
+      "`remove()` is faster",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `explain()` method in MongoDB?",
+    options: [
+      "A method to get a detailed report of the query plan for a given operation",
+      "A method to explain database errors",
+      "A method to explain data types",
+      "A method to explain query syntax",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "How does MongoDB handle `concurrency`?",
+    options: [
+      "Using table-level locks",
+      "Using document-level locking (WiredTiger) or collection-level locking (MMAPv1)",
+      "Using row-level locks",
+      "MongoDB does not handle concurrency",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- HTML Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "html",
+    questionText: "What does HTML stand for?",
+    options: [
+      "Hyper Text Markup Language",
+      "Hyperlink and Text Markup Language",
+      "Home Tool Markup Language",
+      "Hypertext Transfer Markup Language",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used to define an internal style sheet?",
+    options: ["<script>", "<style>", "<css>", "<link>"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used for the largest heading?",
+    options: ["<h6>", "<head>", "<h1>", "<heading>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "What is the correct HTML tag for inserting a line break?",
+    options: ["<lb>", "<break>", "<br>", "<newline>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText:
+      "Which HTML attribute is used to specify the URL of the page the link goes to?",
+    options: ["src", "href", "link", "url"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText:
+      "Which HTML element is used to define the title of a document?",
+    options: ["<head>", "<title>", "<meta>", "<header>"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used to create an unordered list?",
+    options: ["<ol>", "<ul>", "<li>", "<list>"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used to define a table row?",
+    options: ["<td>", "<th>", "<tr>", "<table>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "What is the correct HTML element for playing video files?",
+    options: ["<movie>", "<media>", "<video>", "<play>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText:
+      "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+    options: ["title", "src", "alt", "description"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used to define a paragraph?",
+    options: ["<p>", "<para>", "<text>", "<line>"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML tag is used to define an image?",
+    options: ["<pic>", "<image>", "<img>", "<photo>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which HTML element is used to define important text?",
+    options: ["<i>", "<b>", "<strong>", "<mark>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "What is the purpose of the `<form>` tag?",
+    options: [
+      "To define a section of a document",
+      "To create a container for input elements to collect user input",
+      "To display images",
+      "To link to external stylesheets",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "html",
+    questionText: "Which input type creates a single-line text input field?",
+    options: [
+      "<input type='text'>",
+      "<input type='textarea'>",
+      "<input type='string'>",
+      "<input type='line'>",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "html",
+    questionText: "Differentiate between `<head>` and `<header>` tags.",
+    options: [
+      "`<head>` contains meta-information about the document, `<header>` represents introductory content or navigational links for a section",
+      "They are interchangeable",
+      "`<head>` is for body content, `<header>` is for scripts",
+      "Only one can be used per page",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText:
+      "Explain the purpose of HTML `semantic elements` (e.g., `<article>`, `<section>`, `<aside>`).",
+    options: [
+      "They are used for styling only",
+      "They provide meaning to the content within them, improving accessibility and SEO",
+      "They are deprecated tags",
+      "They are only for JavaScript functionality",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is the difference between `<div>` and `<span>`?",
+    options: [
+      "`<div>` is a block-level element, `<span>` is an inline element",
+      "No difference",
+      "`<div>` is for text, `<span>` is for images",
+      "Both are deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Explain the `srcset` attribute for `<img>` tag.",
+    options: [
+      "It specifies the source of the image",
+      "It allows you to define a set of different images for different screen sizes or resolutions, enabling responsive images",
+      "It defines the image caption",
+      "It specifies the image alt text",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is `localStorage` and `sessionStorage` in HTML5?",
+    options: [
+      "They are used for server-side data storage",
+      "Web storage objects that allow saving key/value pairs in the browser, `localStorage` persists, `sessionStorage` clears on tab close",
+      "They are used for managing cookies",
+      "They are deprecated",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Describe the use of `<meta>` tags in HTML.",
+    options: [
+      "To define the main content of the page",
+      "To provide metadata about the HTML document (e.g., character set, viewport, description, keywords)",
+      "To link external scripts",
+      "To define styles",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText:
+      "What is the purpose of the `defer` and `async` attributes for `<script>` tags?",
+    options: [
+      "They both stop script execution",
+      "`defer` executes script after HTML parsing, `async` executes script independently without blocking HTML parsing",
+      "Both block HTML parsing",
+      "They are only for external scripts",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Explain the concept of `Web Components`.",
+    options: [
+      "A set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags",
+      "A framework for building single-page applications",
+      "A tool for optimizing images",
+      "A method for server-side rendering",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is the `DOCTYPE` declaration for?",
+    options: [
+      "To define the document title",
+      "To tell the browser which HTML version the document is written in",
+      "To link to an external CSS file",
+      "To declare a new HTML element",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Differentiate between `id` and `class` attributes.",
+    options: [
+      "`id` is unique per document, `class` can be used multiple times",
+      "No difference",
+      "`id` is for styling, `class` is for JavaScript",
+      "Both are deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is `ARIA` and why is it important?",
+    options: [
+      "A type of HTML tag",
+      "Accessible Rich Internet Applications - a set of attributes to make web content and web applications more accessible to people with disabilities",
+      "A JavaScript library for animations",
+      "A CSS framework",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Explain `HTML Forms` and their key elements.",
+    options: [
+      "Used for displaying static content",
+      "Used to collect user input, consisting of elements like `<input>`, `<textarea>`, `<select>`, `<button>` within a `<form>` tag",
+      "Used for creating tables",
+      "Used for embedding videos",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is the purpose of the `alt` attribute in `<img>` tag?",
+    options: [
+      "To specify the image source",
+      "To provide alternative text for an image if it cannot be displayed, important for accessibility",
+      "To set the image dimensions",
+      "To add a title to the image",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "Describe `HTML Entities`.",
+    options: [
+      "Special characters that are reserved in HTML (e.g., `<`, `>`, `&`) and are represented by named or numbered entities",
+      "A type of HTML tag",
+      "A way to link external files",
+      "A method for styling text",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "html",
+    questionText: "What is `Responsive Web Design` and how is HTML involved?",
+    options: [
+      "Designing websites for only desktop screens",
+      "An approach to web design that makes web pages render well on a variety of devices and window or screen sizes, HTML provides the content structure that CSS then adapts",
+      "Designing websites for only mobile screens",
+      "A method for creating interactive games",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "html",
+    questionText: "Explain the concept of `Shadow DOM` in Web Components.",
+    options: [
+      "A way to hide elements from the main DOM",
+      "A separate, encapsulated DOM tree that is attached to an element, allowing for isolated styling and behavior",
+      "A method for creating virtual DOMs",
+      "A tool for debugging HTML",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Describe `Server-Sent Events` (SSE) vs `WebSockets`.",
+    options: [
+      "SSE is full-duplex, WebSockets are half-duplex",
+      "SSE is for one-way (server to client) communication, WebSockets are for full-duplex (two-way) communication",
+      "Both are for client-to-server communication only",
+      "They are interchangeable",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "What is `Web Storage API` and its security implications?",
+    options: [
+      "A way to store data on the server",
+      "Provides mechanisms for web applications to store data client-side (localStorage, sessionStorage), but data is not encrypted and can be accessed by same-origin scripts, making it vulnerable to XSS",
+      "A tool for encrypting data",
+      "A method for secure data transfer",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText:
+      "Explain `Cross-Origin Resource Sharing (CORS)` in the context of HTML and web security.",
+    options: [
+      "A security mechanism that restricts web pages from making requests to a different domain than the one that served the web page, handled by server-side headers and browser enforcement",
+      "A way to share resources between different tabs of the same origin",
+      "A method for optimizing image loading",
+      "A protocol for real-time communication",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Describe `HTML5 Web Workers` and their use cases.",
+    options: [
+      "Scripts that run on the server",
+      "Scripts that run in the background thread, separate from the main execution thread, useful for heavy computations to prevent UI blocking",
+      "Workers that manage database connections",
+      "A type of CSS preprocessor",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText:
+      "What is `Client-Side Storage` and its different types in HTML5?",
+    options: [
+      "Storing data on the server",
+      "Storing data directly in the user's browser (e.g., localStorage, sessionStorage, IndexedDB, Web SQL Database, Cookies)",
+      "Storing data in a cloud service",
+      "Storing data on a USB drive",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Explain the `Content Security Policy (CSP)` in HTML.",
+    options: [
+      "A security standard that helps prevent cross-site scripting (XSS) and other code injection attacks by specifying which dynamic resources are allowed to load",
+      "A policy for content moderation",
+      "A policy for website performance",
+      "A policy for user privacy",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText:
+      "What is the role of `Accessibility` (A11y) in HTML development?",
+    options: [
+      "Making websites look good on all devices",
+      "Ensuring web content is usable by people with disabilities (e.g., screen readers, keyboard navigation)",
+      "Optimizing website loading speed",
+      "Making websites interactive",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText:
+      "Describe `Progressive Web Apps (PWAs)` and their HTML-related aspects.",
+    options: [
+      "Websites that function as native mobile apps, using web technologies like HTML, CSS, JS, and features like Service Workers for offline capabilities, push notifications, and installability",
+      "Apps built only with HTML",
+      "Apps that require a constant internet connection",
+      "Apps that are only for desktop",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Explain the `Media Capture and Streams API` in HTML5.",
+    options: [
+      "An API for playing audio/video files",
+      "An API that enables web applications to access a user's local media devices, such as cameras and microphones",
+      "An API for streaming content from a server",
+      "An API for managing media files on a server",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText:
+      "What is `WebRTC` (Web Real-Time Communication) and its HTML integration?",
+    options: [
+      "A protocol for sending emails",
+      "A set of protocols and APIs that enable real-time voice, video, and generic data communication directly between browsers (peer-to-peer), often integrated with HTML `<video>` and `<audio>` tags",
+      "A tool for web analytics",
+      "A method for server-side rendering",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Differentiate between `SVG` and `Canvas` elements.",
+    options: [
+      "SVG is vector-based, good for scalable graphics; Canvas is pixel-based, good for dynamic, pixel-level drawing",
+      "Both are for static images only",
+      "SVG is for 3D graphics, Canvas is for 2D",
+      "They are interchangeable",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Explain `HTML Templates` (`<template>` tag).",
+    options: [
+      "A way to define reusable HTML fragments that are parsed by the browser but not rendered until explicitly activated by JavaScript",
+      "A template for creating new HTML files",
+      "A way to include external HTML files",
+      "A method for server-side templating",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "What is the `Web Speech API`?",
+    options: [
+      "An API for playing audio files",
+      "An API that enables web applications to incorporate voice recognition (speech-to-text) and speech synthesis (text-to-speech) capabilities",
+      "An API for managing voice calls",
+      "An API for recording audio",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "html",
+    questionText: "Describe `Server-Side Includes (SSI)`.",
+    options: [
+      "A client-side technology for including files",
+      "A server-side technology that allows web servers to include the contents of one file into another on the fly",
+      "A method for including external JavaScript files",
+      "A way to embed videos",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- CSS Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "css",
+    questionText: "What does CSS stand for?",
+    options: [
+      "Creative Style Sheets",
+      "Cascading Style Sheets",
+      "Computer Style Sheets",
+      "Colorful Style Sheets",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "Which HTML attribute is used to define inline styles?",
+    options: ["styles", "class", "font", "style"],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "Which CSS property controls the text size?",
+    options: ["text-style", "font-size", "text-size", "font-style"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "How do you add a background color for all <h1> elements?",
+    options: [
+      "h1 {background-color: #FFF;}",
+      "h1.background-color = #FFF;",
+      "all.h1.background-color = #FFF;",
+      "<h1 style='background-color:#FFF;'>",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "Which CSS property is used to change the text color of an element?",
+    options: ["fgcolor", "text-color", "color", "font-color"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "Which CSS property is used to change the font of an element?",
+    options: ["font-family", "font-style", "text-font", "font-type"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "How do you make the text bold in CSS?",
+    options: [
+      "font-weight: bold;",
+      "text-decoration: bold;",
+      "font-style: bold;",
+      "text-weight: bold;",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "Which CSS property is used to control the space between elements?",
+    options: ["spacing", "padding", "margin", "border-spacing"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "What is the correct CSS syntax for making all `<p>` elements red?",
+    options: [
+      "p.color:red;",
+      "p {color:red;}",
+      "<p style='color:red;'>",
+      "{p:color=red;}",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "How do you include an external stylesheet?",
+    options: [
+      "<link rel='stylesheet' href='mystyle.css'>",
+      "<style src='mystyle.css'>",
+      "<stylesheet>mystyle.css</stylesheet>",
+      "<css>mystyle.css</css>",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "Which property is used to change the left margin of an element?",
+    options: ["margin-left", "padding-left", "left-margin", "indent-left"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "What is the correct CSS property for controlling the underline of text?",
+    options: ["text-decoration", "underline", "text-style", "font-underline"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText:
+      "Which CSS property is used to make a div element float to the left?",
+    options: [
+      "align: left;",
+      "float: left;",
+      "position: left;",
+      "display: float-left;",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "What is the purpose of the `box-sizing` property?",
+    options: [
+      "To define the size of the box model",
+      "To control how the total width and height of an element are calculated (content-box or border-box)",
+      "To add a shadow to a box",
+      "To align boxes",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "css",
+    questionText: "How do you specify a background image for an element?",
+    options: [
+      "background-image: 'image.png';",
+      "background: url('image.png');",
+      "image: url('image.png');",
+      "bg-image: 'image.png';",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "css",
+    questionText: "Explain the CSS Box Model.",
+    options: [
+      "It's a model for creating 3D boxes",
+      "It describes how HTML elements are rendered as rectangular boxes, comprising content, padding, border, and margin",
+      "It's a model for responsive design",
+      "It's a way to organize CSS files",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "Differentiate between `margin` and `padding`.",
+    options: [
+      "`margin` is space inside the border, `padding` is space outside",
+      "`margin` is space outside the border, `padding` is space inside",
+      "They are interchangeable",
+      "Both are used for text alignment",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "What is `CSS specificity`?",
+    options: [
+      "The order in which CSS rules are applied",
+      "A set of rules that determine which CSS style declarations are applied to an element when multiple rules could apply",
+      "A way to make CSS code more specific",
+      "A method for optimizing CSS performance",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText:
+      "Explain `Flexbox` (Flexible Box Layout) and its primary use.",
+    options: [
+      "A layout model for arranging items in a single row or column, making it easier to design flexible and responsive layouts",
+      "A tool for creating 3D animations",
+      "A method for styling text",
+      "A way to manage external stylesheets",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText:
+      "What is `CSS Grid` Layout and how does it differ from Flexbox?",
+    options: [
+      "A 1D layout system; Flexbox is 2D",
+      "A 2D layout system for arranging content in rows and columns; Flexbox is a 1D system for distributing space along a single axis",
+      "Both are 1D layout systems",
+      "Both are 2D layout systems",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText:
+      "Describe `CSS Selectors` (e.g., class, ID, element, descendant).",
+    options: [
+      "Ways to choose which HTML elements to style",
+      "Properties that define element appearance",
+      "Values that define colors",
+      "Functions that manipulate CSS",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "What is the `z-index` property used for?",
+    options: [
+      "To control the order of elements in 3D space",
+      "To control the stacking order of positioned elements along the z-axis",
+      "To set the text alignment",
+      "To control the opacity of an element",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText:
+      "Explain `Pseudo-classes` (e.g., `:hover`, `:nth-child`) and `Pseudo-elements` (e.g., `::before`, `::after`).",
+    options: [
+      "Pseudo-classes select elements based on state, pseudo-elements style parts of an element",
+      "They are interchangeable",
+      "Both are for styling only",
+      "Both are for JavaScript interaction",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "What is `Responsive Web Design` in CSS?",
+    options: [
+      "Designing websites for only desktop screens",
+      "An approach to web design that makes web pages render well on a variety of devices and window or screen sizes, primarily using media queries",
+      "Designing websites for only mobile screens",
+      "A method for creating interactive games",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText:
+      "Differentiate between `block`, `inline`, and `inline-block` display properties.",
+    options: [
+      "`block` takes full width, `inline` takes only necessary width, `inline-block` allows setting width/height while staying inline",
+      "They are interchangeable",
+      "All are block-level elements",
+      "All are inline-level elements",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS Transitions` and `CSS Animations`.",
+    options: [
+      "Transitions are for single state changes, Animations are for complex, multi-step sequences",
+      "Both are for static effects",
+      "Transitions are only for colors, Animations are for shapes",
+      "They are interchangeable",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "What is the purpose of `rem` and `em` units in CSS?",
+    options: [
+      "Both are absolute units",
+      "`rem` is relative to the root element's font-size, `em` is relative to the parent element's font-size",
+      "Both are relative to the viewport size",
+      "Both are fixed pixel values",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "Describe `CSS Preprocessors` (e.g., Sass, Less, Stylus).",
+    options: [
+      "Tools that allow you to write CSS in a more advanced syntax (variables, nesting, mixins) and then compile it into regular CSS",
+      "Tools for optimizing CSS performance",
+      "Tools for debugging CSS",
+      "Tools for generating random CSS",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "What is `BEM` (Block Element Modifier) methodology in CSS?",
+    options: [
+      "A naming convention for CSS classes to make them more modular and reusable",
+      "A type of CSS framework",
+      "A tool for CSS compression",
+      "A method for writing inline CSS",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS Variables` (Custom Properties).",
+    options: [
+      "Variables that can be defined in CSS and reused throughout the stylesheet, making it easier to manage values",
+      "Variables that are only for JavaScript",
+      "Variables that are deprecated",
+      "Variables that are only for animations",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "css",
+    questionText: "Describe `CSS Grid`'s implicit vs explicit grid.",
+    options: [
+      "Explicit grid is defined by `grid-template-rows/columns`, implicit grid is created when items are placed outside the explicit grid",
+      "Both are defined explicitly",
+      "Both are created implicitly",
+      "They are the same",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS BFC` (Block Formatting Context).",
+    options: [
+      "A part of a visual CSS rendering of a web page; it's a block-level box that establishes a formatting context for its contents",
+      "A way to format text in blocks",
+      "A method for optimizing CSS performance",
+      "A tool for debugging layout issues",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "What is `CSS-in-JS` and its advantages/disadvantages?",
+    options: [
+      "Writing CSS directly in HTML files",
+      "Styling components with JavaScript, offering benefits like scoped styles and dynamic theming, but can increase bundle size and runtime overhead",
+      "Writing JavaScript in CSS files",
+      "A method for server-side rendering",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText:
+      "Differentiate between `position: relative`, `absolute`, `fixed`, and `sticky`.",
+    options: [
+      "They all position elements the same way",
+      "Each positions elements differently relative to their normal position, parent, viewport, or scroll position",
+      "Only `absolute` and `fixed` are useful",
+      "Only `relative` and `sticky` are used for responsive design",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText:
+      "Explain `CSS Custom Properties` (Variables) and their scope.",
+    options: [
+      "Global variables only",
+      "Variables defined with `--` prefix that can be scoped locally or globally and cascaded",
+      "Variables that are only for JavaScript",
+      "Variables that are deprecated",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Describe `CSS Modules` and their benefits.",
+    options: [
+      "A way to write global CSS",
+      "A CSS file in which all class names and animation names are scoped locally by default, preventing naming conflicts",
+      "A tool for CSS compression",
+      "A method for inline styling",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "What is `CSS Houdini`?",
+    options: [
+      "A new CSS framework",
+      "A set of APIs that expose parts of the CSS engine, allowing developers to extend CSS with custom properties, functions, and layout algorithms",
+      "A tool for debugging CSS",
+      "A method for optimizing CSS animations",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS Containment` property.",
+    options: [
+      "A property that allows developers to isolate a subtree of the DOM from the rest of the page, improving performance by limiting layout, style, and paint calculations",
+      "A property for containing text within a box",
+      "A property for responsive images",
+      "A property for creating animations",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "What is `CSS `Will-change` property and its purpose?",
+    options: [
+      "A property that indicates which properties of an element are expected to change, allowing browsers to optimize rendering ahead of time",
+      "A property that changes the content of an element",
+      "A property that defines a new CSS variable",
+      "A property that controls element visibility",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Describe `CSS Blend Modes` and their applications.",
+    options: [
+      "A way to blend colors in text",
+      "Properties that define how an element's content should blend with its background, similar to Photoshop blend modes; used for creative visual effects",
+      "A method for compressing images",
+      "A tool for debugging color issues",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS `aspect-ratio` property.",
+    options: [
+      "A property that sets the preferred aspect ratio for the box, which will be used in the calculation of auto sizes and other layout functions",
+      "A property for responsive images",
+      "A property for controlling text size",
+      "A property for setting element opacity",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "What are `CSS `logical properties` and `values`?",
+    options: [
+      "Properties that are based on physical directions (top, left, right, bottom)",
+      "Properties and values that map to physical properties based on the writing mode, directionality, and text orientation of the document (e.g., `margin-inline-start`)",
+      "Properties that are only for logical operations",
+      "Properties that are deprecated",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Describe `CSS `initial`, `inherit`, and `unset` keywords.",
+    options: [
+      "`initial` resets to default, `inherit` takes value from parent, `unset` resets to inherited value if property is inherited, otherwise to initial",
+      "They all do the same thing",
+      "They are only for JavaScript",
+      "They are deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "Explain `CSS `@supports` rule (Feature Queries).",
+    options: [
+      "A conditional group rule that lets you apply styles based on whether the browser supports a specific CSS feature",
+      "A rule for supporting old browsers",
+      "A rule for defining new CSS features",
+      "A rule for debugging CSS",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "css",
+    questionText: "What is `CSS `mask-image` and its use?",
+    options: [
+      "A property for hiding images",
+      "A property that sets the image to be used as the mask layer for an element, allowing for complex shapes and transparency effects",
+      "A property for blurring images",
+      "A property for adding borders to images",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- C Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "c",
+    questionText: "Which function is used to print output in C?",
+    options: ["print()", "printf()", "display()", "write()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What is the entry point of a C program?",
+    options: ["start()", "main()", "run()", "begin()"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "Which header file is required for `printf()` and `scanf()`?",
+    options: ["<stdlib.h>", "<string.h>", "<stdio.h>", "<math.h>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText:
+      "Which keyword is used to declare a variable that cannot be changed?",
+    options: ["static", "volatile", "const", "fixed"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What is the size of `int` data type in C (typically)?",
+    options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "Which operator is used for logical AND?",
+    options: ["&", "|", "&&", "||"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "How do you declare an array of 10 integers?",
+    options: [
+      "int arr[10];",
+      "array arr[10];",
+      "int arr = new int[10];",
+      "arr[10];",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What is a `pointer` in C?",
+    options: [
+      "A variable that stores a value",
+      "A variable that stores the memory address of another variable",
+      "A constant value",
+      "A function",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "Which loop guarantees to execute at least once?",
+    options: ["for", "while", "do-while", "goto"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What is the purpose of `break` statement?",
+    options: [
+      "To exit the program",
+      "To exit a loop or switch statement",
+      "To skip an iteration",
+      "To restart a loop",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "Which operator is used to get the address of a variable?",
+    options: ["*", "&", "#", "$"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What does `NULL` represent in C?",
+    options: [
+      "Zero",
+      "Empty string",
+      "A pointer that points to nothing",
+      "Undefined value",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "Which of these is a character data type?",
+    options: ["int", "float", "char", "double"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "How do you read a string from the user in C?",
+    options: [
+      '`scanf("%s", str);`',
+      "`gets(str);`",
+      "`read(str);`",
+      "Both A and B",
+    ],
+    correctAnswer: 3,
+    difficulty: "easy",
+  },
+  {
+    category: "c",
+    questionText: "What is the purpose of `sizeof` operator?",
+    options: [
+      "To get the number of elements in an array",
+      "To get the size in bytes of a variable or data type",
+      "To get the length of a string",
+      "To get the memory address",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "c",
+    questionText: "Explain `Pointers` in C and their use cases.",
+    options: [
+      "Variables that store values; used for arithmetic operations",
+      "Variables that store memory addresses; used for dynamic memory allocation, array manipulation, and passing arguments by reference",
+      "Constants that store memory addresses; used for security",
+      "Functions that return memory addresses",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "Differentiate between `malloc()` and `calloc()`.",
+    options: [
+      "Both allocate memory; `malloc()` allocates a single block, `calloc()` allocates multiple blocks and initializes to zero",
+      "No difference",
+      "`malloc()` is for static memory, `calloc()` for dynamic",
+      "`calloc()` is faster",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is a `Structure` in C?",
+    options: [
+      "A user-defined data type that allows to combine data items of different kinds",
+      "A built-in data type",
+      "A function that returns multiple values",
+      "A type of array",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "Explain `Pass by Value` vs `Pass by Reference`.",
+    options: [
+      "Pass by Value: copy of argument passed; Pass by Reference: address of argument passed",
+      "No difference",
+      "Pass by Value is faster",
+      "Pass by Reference is only for arrays",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is `Dynamic Memory Allocation` in C?",
+    options: [
+      "Allocating memory at compile-time",
+      "Allocating memory at runtime using functions like `malloc()`, `calloc()`, `realloc()`, and `free()`",
+      "Allocating memory on the stack",
+      "Allocating memory for global variables",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "Describe `File I/O` operations in C.",
+    options: [
+      "Reading/writing data from/to network sockets",
+      "Reading/writing data from/to files using functions like `fopen()`, `fprintf()`, `fscanf()`, `fclose()`",
+      "Reading/writing data from/to console only",
+      "Reading/writing data from/to memory",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is a `Union` in C?",
+    options: [
+      "A data type that allows storing multiple members at the same memory location, but only one member can hold a value at a time",
+      "A structure that can hold only one data type",
+      "A function that combines two arrays",
+      "A type of pointer",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText:
+      "Explain `Storage Classes` in C (auto, register, static, extern).",
+    options: [
+      "They define where a variable is stored, its initial value, scope, and lifetime",
+      "They define the size of a variable",
+      "They define the data type of a variable",
+      "They define the name of a variable",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is `Recursion` in C programming?",
+    options: [
+      "A loop that runs infinitely",
+      "A function calling itself directly or indirectly to solve a problem",
+      "A way to optimize code",
+      "A method for sorting data",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText:
+      "Differentiate between `array` and `pointer` in terms of declaration and usage.",
+    options: [
+      "Arrays are fixed-size collections, pointers store addresses; arrays decay to pointers in expressions",
+      "They are interchangeable",
+      "Arrays are dynamic, pointers are static",
+      "Arrays are for numbers, pointers for characters",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is a `Macro` in C?",
+    options: [
+      "A function defined in a library",
+      "A piece of code in a program that is replaced by the value of the macro",
+      "A type of variable",
+      "A debugging tool",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "Explain `Typedef` keyword in C.",
+    options: [
+      "To define a new variable",
+      "To create an alias for a data type",
+      "To define a new function",
+      "To create a new structure",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is the purpose of `void pointer`?",
+    options: [
+      "A pointer that points to nothing",
+      "A pointer that can point to any data type (generic pointer)",
+      "A pointer that points to a void function",
+      "A pointer that cannot be dereferenced",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "Describe `Command Line Arguments` in C.",
+    options: [
+      "Arguments passed to functions",
+      "Arguments passed to the `main()` function when the program is executed from the command line",
+      "Arguments passed to macros",
+      "Arguments passed to system calls",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "c",
+    questionText: "What is `Dangling Pointer` and how to avoid it?",
+    options: [
+      "A pointer that points to a valid memory location",
+      "A pointer that points to a memory location that has been freed or deallocated; avoid by setting to NULL after `free()`",
+      "A pointer that points to a string",
+      "A pointer that is always NULL",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "c",
+    questionText:
+      "Explain `Memory Layout` of a C program (Text, Data, BSS, Heap, Stack).",
+    options: [
+      "How variables are stored in memory",
+      "The organization of different memory segments (code, initialized data, uninitialized data, dynamic memory, function call stack) for a running program",
+      "How files are stored on disk",
+      "How CPU caches work",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Describe `Volatile` keyword in C.",
+    options: [
+      "Indicates a variable's value can be changed by external factors (e.g., hardware), preventing compiler optimizations that might remove reads/writes",
+      "Indicates a variable is constant",
+      "Indicates a variable is temporary",
+      "Indicates a variable is global",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "What is `Function Pointer` and its use cases?",
+    options: [
+      "A pointer to a variable",
+      "A pointer that stores the address of a function, allowing functions to be passed as arguments or stored in data structures",
+      "A pointer that cannot be dereferenced",
+      "A pointer to an array",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText:
+      "Explain `Pre-processor Directives` in C (e.g., #include, #define, #ifdef).",
+    options: [
+      "Commands for the compiler to execute at runtime",
+      "Instructions for the preprocessor to modify the source code before compilation",
+      "Commands for the linker",
+      "Commands for the debugger",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Differentiate between `Stack` and `Heap` memory allocation.",
+    options: [
+      "Stack: automatic, fixed-size, fast; Heap: dynamic, variable-size, slower, requires manual management",
+      "Stack is for global variables, Heap for local",
+      "They are interchangeable",
+      "Stack is for large allocations, Heap for small",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "What is `Bitwise Operators` in C and their applications?",
+    options: [
+      "Operators for arithmetic calculations",
+      "Operators that work on individual bits of numbers (AND, OR, XOR, NOT, shift); used for low-level programming, flags, encryption",
+      "Operators for string manipulation",
+      "Operators for logical comparisons",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText:
+      "Describe `Self-Referential Structures` and their use in Linked Lists.",
+    options: [
+      "Structures that refer to themselves; used to create nodes in data structures like linked lists, trees, and graphs",
+      "Structures that cannot be used with pointers",
+      "Structures that are only for single variables",
+      "Structures that are always constant",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Explain `Const Pointers` vs `Pointer to Const`.",
+    options: [
+      "Const pointer: pointer itself is constant; Pointer to const: data pointed to is constant",
+      "They are the same",
+      "Const pointer is always NULL",
+      "Pointer to const cannot be dereferenced",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "What is `Indirection` and `Dereferencing` in C?",
+    options: [
+      "Indirection is getting the address, Dereferencing is getting the value at an address",
+      "They are the same",
+      "Indirection is only for arrays",
+      "Dereferencing is only for functions",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Describe `Segmentation Fault` and `Bus Error`.",
+    options: [
+      "Both are compilation errors",
+      "Segmentation Fault: accessing memory not allowed; Bus Error: hardware-related memory access issue (e.g., misaligned access)",
+      "Both are runtime errors caused by network issues",
+      "Both are related to file I/O",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Explain `Inline Functions` in C.",
+    options: [
+      "Functions that are always called from a separate memory location",
+      "A hint to the compiler to insert the function's code directly at the call site, potentially improving performance by avoiding function call overhead",
+      "Functions that are only for internal use",
+      "Functions that are deprecated",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "What is `VLA` (Variable Length Array) in C?",
+    options: [
+      "Arrays with fixed size",
+      "Arrays whose size is determined at runtime, not compile-time",
+      "Arrays that can store different data types",
+      "Arrays that are always global",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Differentiate between `static` and `global` variables.",
+    options: [
+      "`static` has local scope but lifetime of program, `global` has global scope and lifetime of program",
+      "They are interchangeable",
+      "`static` is faster",
+      "`global` is only for functions",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "Explain `Bit Fields` in C structures.",
+    options: [
+      "A way to store boolean values",
+      "A way to pack data into a structure in terms of bits, optimizing memory usage",
+      "A method for encrypting data",
+      "A tool for debugging memory",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "c",
+    questionText: "What is `Endianness` (Big-Endian vs Little-Endian)?",
+    options: [
+      "The order of bits in a byte",
+      "The order in which bytes are stored in computer memory (most significant byte first vs least significant byte first)",
+      "The order of characters in a string",
+      "The order of operations in an expression",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- AI/ML Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "aiml",
+    questionText: "What does AI stand for?",
+    options: [
+      "Artificial Intelligence",
+      "Automated Information",
+      "Advanced Integration",
+      "Algorithmic Innovation",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "Which of these is a common programming language for AI?",
+    options: ["HTML", "CSS", "Python", "SQL"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is 'Machine Learning'?",
+    options: [
+      "Programming computers to perform specific tasks",
+      "Enabling computers to learn from data without being explicitly programmed",
+      "Designing hardware for robots",
+      "Creating animations",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "Which type of learning involves labeled data?",
+    options: [
+      "Unsupervised Learning",
+      "Reinforcement Learning",
+      "Supervised Learning",
+      "Semi-supervised Learning",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is a 'dataset' in Machine Learning?",
+    options: [
+      "A program that trains models",
+      "A collection of data used for training and testing models",
+      "A type of algorithm",
+      "A hardware component",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "Which of these is a common application of AI?",
+    options: [
+      "Word Processing",
+      "Image Recognition",
+      "Spreadsheet Management",
+      "Web Browsing",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is a 'feature' in Machine Learning?",
+    options: [
+      "A characteristic or attribute of the data",
+      "A type of algorithm",
+      "A model's output",
+      "A programming language",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Which algorithm is used for classification and regression tasks?",
+    options: [
+      "K-Means",
+      "Linear Regression",
+      "PageRank",
+      "Dijkstra's Algorithm",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is 'Deep Learning'?",
+    options: [
+      "A subset of Machine Learning that uses neural networks with many layers",
+      "Learning from deep philosophical texts",
+      "Learning about ocean depths",
+      "A type of unsupervised learning",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is 'Overfitting' in Machine Learning?",
+    options: [
+      "When a model performs well on training data but poorly on new data",
+      "When a model performs poorly on training data",
+      "When a model is too simple",
+      "When a model is too fast",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "Which metric is used to evaluate classification models?",
+    options: [
+      "Mean Squared Error",
+      "R-squared",
+      "Accuracy",
+      "Root Mean Squared Error",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is a 'Neural Network'?",
+    options: [
+      "A network of computers",
+      "A computational model inspired by the structure and function of biological neural networks",
+      "A type of database",
+      "A programming language",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "Which of these is a type of 'Reinforcement Learning'?",
+    options: ["Classification", "Clustering", "Q-Learning", "Regression"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is 'Natural Language Processing' (NLP)?",
+    options: [
+      "Processing natural images",
+      "Enabling computers to understand, interpret, and generate human language",
+      "Processing numerical data",
+      "Processing audio signals",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aiml",
+    questionText: "What is a 'Confusion Matrix' used for?",
+    options: [
+      "To confuse machine learning models",
+      "To evaluate the performance of a classification model",
+      "To visualize data",
+      "To store model parameters",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "aiml",
+    questionText:
+      "Explain the difference between `Supervised` and `Unsupervised Learning`.",
+    options: [
+      "Supervised uses labeled data, Unsupervised uses unlabeled data",
+      "Supervised is for regression, Unsupervised for classification",
+      "Supervised is faster",
+      "Unsupervised is more accurate",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Bias-Variance Tradeoff` in Machine Learning?",
+    options: [
+      "A tradeoff between model complexity and interpretability",
+      "A tradeoff between a model's ability to fit training data well (low bias) and its ability to generalize to new data (low variance)",
+      "A tradeoff between training time and prediction time",
+      "A tradeoff between accuracy and precision",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe `Gradient Descent` algorithm.",
+    options: [
+      "A sorting algorithm",
+      "An optimization algorithm used to minimize the cost function of a model by iteratively moving in the direction of the steepest descent",
+      "A search algorithm",
+      "A clustering algorithm",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What are `Activation Functions` in Neural Networks?",
+    options: [
+      "Functions that activate the network",
+      "Functions that introduce non-linearity into the output of a neuron, allowing neural networks to learn complex patterns",
+      "Functions that define the network architecture",
+      "Functions that initialize weights",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "Explain `Cross-Validation` and its purpose.",
+    options: [
+      "A method for creating new features",
+      "A technique for evaluating model performance by partitioning the data into subsets, training on some and testing on others, to reduce overfitting",
+      "A method for data cleaning",
+      "A technique for hyperparameter tuning",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Regularization` in Machine Learning?",
+    options: [
+      "A technique to make models more regular",
+      "Techniques (e.g., L1, L2) used to prevent overfitting by adding a penalty to the loss function for large coefficients",
+      "A method for data normalization",
+      "A technique for feature selection",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Differentiate between `Classification` and `Regression` tasks.",
+    options: [
+      "Classification predicts continuous values, Regression predicts discrete categories",
+      "Classification predicts discrete categories, Regression predicts continuous values",
+      "They are interchangeable",
+      "Both predict continuous values",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Feature Engineering`?",
+    options: [
+      "Creating new algorithms",
+      "The process of transforming raw data into features that better represent the underlying problem to the predictive models",
+      "Selecting the best features",
+      "Removing irrelevant features",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Explain `Convolutional Neural Networks (CNNs)` and their primary use.",
+    options: [
+      "Neural networks for text processing",
+      "Neural networks specifically designed for processing grid-like data, such as images, using convolutional layers",
+      "Neural networks for sequential data",
+      "Neural networks for tabular data",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Hyperparameter Tuning`?",
+    options: [
+      "Adjusting model parameters during training",
+      "The process of finding the optimal set of hyperparameters for a machine learning model to achieve the best performance",
+      "Optimizing the dataset",
+      "Selecting the best algorithm",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe `Transfer Learning`.",
+    options: [
+      "Training a model from scratch",
+      "Reusing a pre-trained model on a new, related task, often with fine-tuning",
+      "Transferring data between models",
+      "Transferring knowledge between humans",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Reinforcement Learning`?",
+    options: [
+      "Learning from labeled data",
+      "Learning by interacting with an environment, receiving rewards or penalties for actions, and learning to maximize cumulative reward",
+      "Learning from unlabeled data",
+      "Learning by observing human behavior",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "Explain `Recurrent Neural Networks (RNNs)` and their use.",
+    options: [
+      "Neural networks for image processing",
+      "Neural networks designed to process sequential data (e.g., time series, natural language) by maintaining an internal state",
+      "Neural networks for tabular data",
+      "Neural networks for classification",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Ensemble Learning`?",
+    options: [
+      "Training a single model",
+      "Combining multiple machine learning models to obtain better predictive performance than could be obtained from any of the constituent models alone",
+      "Learning from a single dataset",
+      "Learning with human supervision",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe `Clustering` algorithms (e.g., K-Means).",
+    options: [
+      "Algorithms for classification",
+      "Unsupervised learning algorithms used to group similar data points into clusters based on their inherent characteristics",
+      "Algorithms for regression",
+      "Algorithms for anomaly detection",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "aiml",
+    questionText: "Explain `Generative Adversarial Networks (GANs)`.",
+    options: [
+      "Networks used for classification tasks",
+      "A class of AI systems composed of two neural networks (Generator and Discriminator) contesting with each other to generate new, synthetic data that resembles real data",
+      "Networks for data compression",
+      "Networks for feature selection",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe the `Transformer Architecture` in NLP.",
+    options: [
+      "A type of RNN",
+      "A neural network architecture that relies solely on attention mechanisms (self-attention) to draw global dependencies between input and output, widely used in NLP tasks like machine translation and text generation",
+      "A type of CNN",
+      "A traditional statistical model",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "What is `Reinforcement Learning`'s `Exploration-Exploitation Dilemma`?",
+    options: [
+      "The tradeoff between exploring new actions to find better rewards and exploiting known good actions to maximize immediate reward",
+      "The tradeoff between model complexity and accuracy",
+      "The tradeoff between training time and inference time",
+      "The tradeoff between bias and variance",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Explain `Autoencoders` and their applications.",
+    options: [
+      "Neural networks used for classification",
+      "Neural networks used for unsupervised learning to learn efficient data codings (dimensionality reduction, feature learning) by attempting to reconstruct their own input",
+      "Neural networks for generating new data",
+      "Neural networks for sequential data",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Federated Learning`?",
+    options: [
+      "Training models on a central server",
+      "A machine learning setting where multiple entities (clients) collaborate to solve a machine learning problem, without centralizing the data, by sending model updates to a central server",
+      "Learning from publicly available datasets",
+      "Learning with human feedback",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe `Capsule Networks` and their advantages over CNNs.",
+    options: [
+      "A type of RNN",
+      "A neural network architecture designed to overcome some limitations of CNNs by using 'capsules' to preserve hierarchical relationships between features, potentially improving robustness to rotation and viewpoint changes",
+      "A type of traditional neural network",
+      "A network for text classification",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Explain `Adversarial Attacks` on Machine Learning models.",
+    options: [
+      "Attacks that improve model performance",
+      "Inputs specifically designed to cause a machine learning model to make a mistake (e.g., misclassify an image) by adding small, often imperceptible, perturbations",
+      "Attacks that steal data from models",
+      "Attacks that slow down model training",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `XAI` (Explainable AI)?",
+    options: [
+      "AI that explains itself in human-understandable terms, addressing transparency and interpretability of complex models",
+      "AI that is very fast",
+      "AI that is very accurate",
+      "AI that is easy to train",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Differentiate between `Batch Gradient Descent`, `Stochastic Gradient Descent`, and `Mini-Batch Gradient Descent`.",
+    options: [
+      "All use the entire dataset for each update",
+      "Differ in the amount of data used to compute the gradient for each update (Batch: all, Stochastic: one, Mini-Batch: subset)",
+      "They are different optimization algorithms entirely",
+      "Only one is used in deep learning",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Describe `Graph Neural Networks (GNNs)` and their applications.",
+    options: [
+      "Neural networks for image processing",
+      "Neural networks designed to operate directly on graph-structured data, capable of learning representations of nodes, edges, and entire graphs; used in social networks, drug discovery",
+      "Neural networks for sequential data",
+      "Neural networks for tabular data",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Few-Shot Learning`?",
+    options: [
+      "Training a model with a large dataset",
+      "Training a model to generalize to new tasks or classes given only a few examples per class",
+      "Learning from a single example",
+      "Learning without any examples",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText:
+      "Explain `Reinforcement Learning`'s `Policy Gradient Methods`.",
+    options: [
+      "Methods that directly learn a policy function that maps states to actions, rather than learning value functions",
+      "Methods that learn a value function only",
+      "Methods that use supervised learning",
+      "Methods that use unsupervised learning",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "What is `Active Learning` in Machine Learning?",
+    options: [
+      "Learning from a fixed dataset",
+      "A type of machine learning where the learning algorithm can interactively query a user or other information source to obtain the desired outputs for new data points",
+      "Learning without human interaction",
+      "Learning from passive observation",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Describe `Self-Supervised Learning`.",
+    options: [
+      "Learning from labeled data",
+      "A type of unsupervised learning where the model learns representations from data by creating and solving pretext tasks using the data itself as supervision",
+      "Learning with human supervision",
+      "Learning from external knowledge bases",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aiml",
+    questionText: "Explain `Causal Inference` in AI/ML.",
+    options: [
+      "Inferring correlations between variables",
+      "Inferring cause-and-effect relationships from data, going beyond mere correlation to understand why events happen",
+      "Inferring predictions from a model",
+      "Inferring data distributions",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- Aptitude Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "aptitude",
+    questionText: "What is 15% of 200?",
+    options: ["15", "20", "30", "45"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If a car travels at 60 km/h, how far will it travel in 2 hours?",
+    options: ["60 km", "90 km", "120 km", "180 km"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is the next number in the sequence: 2, 4, 6, 8, ...?",
+    options: ["9", "10", "11", "12"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "If a dozen eggs cost $3.60, how much does one egg cost?",
+    options: ["$0.20", "$0.30", "$0.40", "$0.50"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is the square root of 81?",
+    options: ["7", "8", "9", "10"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If you buy an item for $50 and sell it for $60, what is your profit percentage?",
+    options: ["10%", "15%", "20%", "25%"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is the average of 10, 20, and 30?",
+    options: ["15", "20", "25", "30"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If a train leaves at 7:00 AM and travels for 3 hours, what time will it arrive?",
+    options: ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "How many sides does a hexagon have?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is 25% of 400?",
+    options: ["50", "75", "100", "125"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If a shirt costs $25 and is on sale for 20% off, what is the sale price?",
+    options: ["$15", "$20", "$22", "$24"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is the perimeter of a square with side length 5 cm?",
+    options: ["10 cm", "20 cm", "25 cm", "30 cm"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If a recipe calls for 2 cups of flour for 4 servings, how much flour is needed for 8 servings?",
+    options: ["2 cups", "3 cups", "4 cups", "6 cups"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "What is the value of 7 squared?",
+    options: ["14", "21", "49", "70"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "aptitude",
+    questionText: "If you have 5 apples and eat 2, how many are left?",
+    options: ["2", "3", "4", "5"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "aptitude",
+    questionText:
+      "A sum of money doubles itself in 5 years at simple interest. In how many years will it become four times?",
+    options: ["10 years", "15 years", "20 years", "25 years"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If 6 men can complete a work in 10 days, how many days will 15 men take to complete the same work?",
+    options: ["3 days", "4 days", "5 days", "6 days"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A train 120m long passes a pole in 6 seconds. What is the speed of the train in km/hr?",
+    options: ["60 km/hr", "72 km/hr", "80 km/hr", "90 km/hr"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The average age of 30 students and a teacher is 15 years. If the teacher's age is excluded, the average age becomes 14 years. What is the teacher's age?",
+    options: ["40 years", "45 years", "50 years", "55 years"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A can do a piece of work in 20 days and B can do it in 30 days. In how many days can they complete the work together?",
+    options: ["10 days", "12 days", "15 days", "25 days"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If the ratio of two numbers is 3:4 and their sum is 63, what are the numbers?",
+    options: ["21, 42", "27, 36", "30, 33", "24, 39"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "What is the probability of drawing a red card from a standard deck of 52 cards?",
+    options: ["1/4", "1/2", "3/4", "1/13"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A mixture of 20 liters of milk and water contains 10% water. How much more water should be added to make the water content 25%?",
+    options: ["2 liters", "3 liters", "4 liters", "5 liters"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The sum of three consecutive odd numbers is 51. What is the middle number?",
+    options: ["15", "17", "19", "21"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A certain amount earns simple interest of $1750 after 7 years at 5% per annum. Find the principal amount.",
+    options: ["$3000", "$4000", "$5000", "$6000"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "If a man walks at 5 km/hr, he misses a train by 7 minutes. If he walks at 6 km/hr, he reaches 5 minutes early. What is the distance to the station?",
+    options: ["5 km", "6 km", "7 km", "8 km"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "How many 3-digit numbers can be formed using digits 1, 2, 3, 4, 5 without repetition?",
+    options: ["60", "90", "120", "150"],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A, B, and C can complete a work in 10, 12, and 15 days respectively. If they work together, in how many days will they complete the work?",
+    options: ["3 days", "4 days", "5 days", "6 days"],
+    correctAnswer: 3,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The price of an article is increased by 20% and then decreased by 20%. What is the net percentage change in the price?",
+    options: ["0%", "4% increase", "4% decrease", "10% increase"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "What is the smallest number that is divisible by 12, 15, and 20?",
+    options: ["30", "40", "60", "120"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "aptitude",
+    questionText:
+      "A boat can travel 20 km downstream in 2 hours and 4 km upstream in 2 hours. What is the speed of the boat in still water and the speed of the stream?",
+    options: [
+      "Boat: 7 km/hr, Stream: 3 km/hr",
+      "Boat: 8 km/hr, Stream: 2 km/hr",
+      "Boat: 9 km/hr, Stream: 1 km/hr",
+      "Boat: 10 km/hr, Stream: 0 km/hr",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A sum of money amounts to $6655 at 10% per annum compound interest in 3 years. Find the principal amount.",
+    options: ["$4000", "$5000", "$5500", "$6000"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "In how many different ways can the letters of the word 'CORPORATION' be arranged so that the vowels always come together?",
+    options: ["50400", "14400", "28800", "7200"],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A, B, and C enter into a partnership. A invests $2000 for 5 months, B invests $3000 for 4 months, and C invests $4000 for 3 months. If the total profit is $1200, what is A's share?",
+    options: ["$300", "$400", "$500", "$600"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A bag contains 5 red balls and 4 blue balls. If two balls are drawn at random, what is the probability that both are red?",
+    options: ["5/18", "1/6", "2/9", "1/18"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A cistern can be filled by pipe A in 10 minutes and by pipe B in 15 minutes. A third pipe C can empty it in 5 minutes. If all three pipes are opened, in what time will the cistern be filled or emptied?",
+    options: [
+      "Filled in 30 min",
+      "Emptied in 30 min",
+      "Filled in 15 min",
+      "Emptied in 15 min",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The difference between compound interest and simple interest on a sum for 2 years at 10% per annum is $15. The sum is:",
+    options: ["$1000", "$1200", "$1500", "$2000"],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A man covers a distance of 10 km in 3 hours, partly by walking at 3 km/hr and partly by running at 5 km/hr. Find the distance covered by walking.",
+    options: ["3 km", "4 km", "5 km", "6 km"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A and B can do a work in 12 days, B and C in 15 days, C and A in 20 days. In how many days can A alone complete the work?",
+    options: ["10 days", "15 days", "20 days", "30 days"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The population of a town increases by 10% every year. If the present population is 12100, what was the population 2 years ago?",
+    options: ["9000", "10000", "11000", "10500"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "Find the least number which when divided by 20, 25, 35, and 40 leaves a remainder of 14, 19, 29, and 34 respectively.",
+    options: ["1394", "1400", "1406", "1414"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A pipe can fill a tank in 12 hours. Due to a leak, it fills in 18 hours. If the tank is full, how long will the leak take to empty it?",
+    options: ["24 hours", "30 hours", "36 hours", "48 hours"],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A sum of $725 is lent in the form of a loan for a period of 5 years at a certain rate of simple interest. The interest obtained is $362.50. Find the rate of interest.",
+    options: ["8%", "10%", "12%", "15%"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "The ratio of the speeds of A and B is 3:4. A takes 20 minutes more than B to reach a destination. What is the time taken by A to reach the destination?",
+    options: ["60 minutes", "80 minutes", "90 minutes", "100 minutes"],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "aptitude",
+    questionText:
+      "A cube of side 4 cm is cut into smaller cubes of side 1 cm. What is the ratio of the total surface area of the smaller cubes to that of the original cube?",
+    options: ["1:4", "4:1", "1:16", "16:1"],
+    correctAnswer: 3,
+    difficulty: "hard",
+  },
+
+  // --- MongoDB Questions (15 Easy, 15 Medium, 15 Hard - aiming for 45+ per category) ---
+  // Easy
+  {
+    category: "mongodb",
+    questionText: "What type of database is MongoDB?",
+    options: ["Relational", "Document-oriented (NoSQL)", "Graph", "Key-Value"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "In MongoDB, data is stored in `documents`. What are these documents similar to?",
+    options: ["SQL tables", "JSON objects", "XML files", "Plain text files"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which command is used to select a database in MongoDB shell?",
+    options: ["use dbname", "select dbname", "connect dbname", "open dbname"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you insert a single document into a collection?",
+    options: [
+      "db.collection.addOne()",
+      "db.collection.insert()",
+      "db.collection.createOne()",
+      "db.collection.save()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which command is used to find all documents in a collection?",
+    options: [
+      "db.collection.getAll()",
+      "db.collection.find()",
+      "db.collection.query()",
+      "db.collection.retrieve()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "What is a `collection` in MongoDB analogous to in a relational database?",
+    options: ["A row", "A column", "A table", "A database"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used for equality comparison in MongoDB queries?",
+    options: ["$eq", "$equal", "$is", "$match"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you update a single document in MongoDB?",
+    options: [
+      "db.collection.update()",
+      "db.collection.updateOne()",
+      "db.collection.modify()",
+      "db.collection.change()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which command removes a single document from a collection?",
+    options: [
+      "db.collection.delete()",
+      "db.collection.deleteOne()",
+      "db.collection.remove()",
+      "db.collection.erase()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the default port for MongoDB?",
+    options: ["27017", "3306", "8080", "5432"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used for 'greater than' in MongoDB queries?",
+    options: ["$gt", "$greater", "$top", "$max"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "How do you count the number of documents in a collection?",
+    options: [
+      "db.collection.size()",
+      "db.collection.countDocuments()",
+      "db.collection.length()",
+      "db.collection.total()",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `_id` field in MongoDB documents?",
+    options: [
+      "A user-defined field",
+      "A mandatory and unique primary key field",
+      "An optional field",
+      "A field for storing timestamps",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which command is used to show all databases?",
+    options: ["show dbs", "list databases", "get dbs", "display dbs"],
+    correctAnswer: 0,
+    difficulty: "easy",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `mongod`?",
+    options: [
+      "MongoDB client",
+      "MongoDB daemon (the primary process for the database system)",
+      "MongoDB driver",
+      "MongoDB query language",
+    ],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+
+  // Medium
+  {
+    category: "mongodb",
+    questionText: "Explain `Embedded Documents` in MongoDB.",
+    options: [
+      "Documents stored in separate collections",
+      "Documents nested within other documents, allowing for rich, hierarchical data models",
+      "Documents that are linked by references",
+      "Documents that are encrypted",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the `Aggregation Pipeline` in MongoDB?",
+    options: [
+      "A way to join collections",
+      "A framework for performing advanced data processing and analysis operations on documents",
+      "A tool for indexing",
+      "A method for data backup",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Differentiate between `_id` and `ObjectId`.",
+    options: [
+      "`_id` is the field name, `ObjectId` is a specific BSON type often used as the default value for `_id`",
+      "They are the same",
+      "`_id` is always a string",
+      "`ObjectId` is always a number",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Sharding` in MongoDB?",
+    options: [
+      "Storing all data on a single server",
+      "A method for distributing data across multiple machines (shards) to support large datasets and high throughput operations",
+      "A type of indexing",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Indexing` in MongoDB and its benefits.",
+    options: [
+      "A way to organize documents physically on disk",
+      "Special data structures that store a small portion of the data in an easy-to-traverse form, improving query performance",
+      "A method for data compression",
+      "A tool for data validation",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Replica Set` in MongoDB?",
+    options: [
+      "A single MongoDB instance",
+      "A group of MongoDB processes that maintain the same data set, providing high availability and data redundancy",
+      "A tool for data migration",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Which aggregation stage is used to filter documents?",
+    options: ["$group", "$project", "$match", "$sort"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "How do you perform a `left outer join` equivalent in MongoDB?",
+    options: [
+      "Using `$lookup` in the aggregation pipeline",
+      "MongoDB does not support joins",
+      "Using `db.collection.join()`",
+      "Using `db.collection.merge()`",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Write Concern` in MongoDB?",
+    options: [
+      "A setting that describes the level of acknowledgment requested from MongoDB for write operations",
+      "A concern about data security",
+      "A concern about database performance",
+      "A concern about data consistency",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Read Preference` in MongoDB.",
+    options: [
+      "A setting that determines how clients route read operations to the members of a replica set",
+      "A preference for reading specific data types",
+      "A preference for faster reads",
+      "A preference for reading from the primary node only",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `GridFS` in MongoDB?",
+    options: [
+      "A file system for storing small files",
+      "A specification for storing and retrieving files that exceed the BSON document size limit (16MB)",
+      "A tool for managing database backups",
+      "A method for data compression",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Differentiate between `find()` and `findOne()`.",
+    options: [
+      "`find()` returns a cursor to multiple documents, `findOne()` returns a single document",
+      "They are interchangeable",
+      "`find()` is faster",
+      "`findOne()` is for large datasets",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Which operator is used to update an array by adding elements to it?",
+    options: ["$set", "$push", "$pull", "$addToSet"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is the purpose of `db.collection.createIndex()`?",
+    options: [
+      "To create a new collection",
+      "To build an index on a specified field or fields to improve query performance",
+      "To create a new database",
+      "To create a new document",
+    ],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `TTL Indexes` in MongoDB.",
+    options: [
+      "Indexes that expire after a certain time, automatically deleting documents from a collection",
+      "Indexes that are only for temporary data",
+      "Indexes that are very fast",
+      "Indexes that are read-only",
+    ],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+
+  // Hard
+  {
+    category: "mongodb",
+    questionText:
+      "Describe `Transactions` in MongoDB (multi-document transactions).",
+    options: [
+      "Operations that occur on a single document only",
+      "A sequence of operations performed across multiple documents and collections that are executed as a single, atomic unit, ensuring ACID properties",
+      "A way to backup data",
+      "A method for data encryption",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Change Streams` in MongoDB.",
+    options: [
+      "A way to log database errors",
+      "A feature that allows applications to access real-time data changes as they occur in a collection, database, or deployment",
+      "A tool for data migration",
+      "A method for data compression",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Schema Validation` in MongoDB?",
+    options: [
+      "Enforcing a rigid schema like relational databases",
+      "A feature that allows you to enforce validation rules on documents during inserts and updates, ensuring data quality",
+      "A tool for data encryption",
+      "A method for optimizing queries",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Differentiate between `WiredTiger` and `MMAPv1` storage engines.",
+    options: [
+      "WiredTiger is the default, offers document-level concurrency, compression, and journaling; MMAPv1 is older, offers collection-level locking",
+      "They are interchangeable",
+      "WiredTiger is faster in all scenarios",
+      "MMAPv1 is more memory efficient",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `OpLog` (Operations Log) in MongoDB.",
+    options: [
+      "A log of user queries",
+      "A special capped collection that keeps a rolling record of all operations that modify data in a replica set, used for replication and recovery",
+      "A log of server errors",
+      "A log of network traffic",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Describe `Read Concern` in MongoDB.",
+    options: [
+      "A setting that determines the consistency guarantee for read operations from a replica set",
+      "A concern about data security",
+      "A concern about database performance",
+      "A concern about data integrity",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Compound Index` and `Multikey Index`?",
+    options: [
+      "Compound index includes multiple fields, Multikey index supports indexing array fields",
+      "They are the same",
+      "Both are for single fields",
+      "Both are deprecated",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Covered Queries` in MongoDB.",
+    options: [
+      "Queries that only use the `_id` field",
+      "Queries that can be answered entirely using an index, without having to examine any documents from the collection",
+      "Queries that cover multiple collections",
+      "Queries that are very fast",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Partial Index`?",
+    options: [
+      "An index that covers only a subset of the documents in a collection, based on a specified filter expression",
+      "An incomplete index",
+      "An index that is only partially built",
+      "An index that is not fully optimized",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Describe `Text Indexes` in MongoDB.",
+    options: [
+      "Indexes for numerical data",
+      "Indexes that support text search queries on string content in documents",
+      "Indexes for dates",
+      "Indexes for boolean values",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "Explain `Capped Collections` in MongoDB.",
+    options: [
+      "Collections that can grow indefinitely",
+      "Fixed-size collections that automatically overwrite their oldest entries when they reach their maximum size",
+      "Collections that are encrypted",
+      "Collections that are read-only",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `Map-Reduce` in MongoDB and its alternative?",
+    options: [
+      "A data aggregation framework; replaced by Aggregation Pipeline for most use cases",
+      "A way to join collections; replaced by `$lookup`",
+      "A method for indexing; replaced by `createIndex()`",
+      "A tool for data migration; replaced by `mongodump`",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText:
+      "Differentiate between `db.collection.remove()` and `db.collection.deleteMany()`.",
+    options: [
+      "`remove()` is deprecated and `deleteMany()` is preferred for deleting multiple documents",
+      "They are interchangeable",
+      "`remove()` deletes one, `deleteMany()` deletes many",
+      "`remove()` is faster",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "What is `explain()` method in MongoDB?",
+    options: [
+      "A method to get a detailed report of the query plan for a given operation",
+      "A method to explain database errors",
+      "A method to explain data types",
+      "A method to explain query syntax",
+    ],
+    correctAnswer: 0,
+    difficulty: "hard",
+  },
+  {
+    category: "mongodb",
+    questionText: "How does MongoDB handle `concurrency`?",
+    options: [
+      "Using table-level locks",
+      "Using document-level locking (WiredTiger) or collection-level locking (MMAPv1)",
+      "Using row-level locks",
+      "MongoDB does not handle concurrency",
+    ],
+    correctAnswer: 1,
+    difficulty: "hard",
+  },
+
+  // --- Other Categories (AI/ML, Aptitude) - aiming for 45+ per category ---
+  // Note: I've included a substantial set for AI/ML and Aptitude above,
+  // making sure they also have around 15-20 questions per difficulty.
+];
+
+// Function to connect to DB and seed questions
+const seedQuizQuestions = async () => {
+  try {
+    // Ensure you have your MongoDB connection string configured
+    // This part assumes you have a separate file or environment variable for your DB_URI
+    // Example: await mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    // For demonstration, let's assume mongoose is already connected or you connect it here:
+    // If you're running this as a standalone script, you'll need to connect first.
+    // Example:
+    // if (!mongoose.connection.readyState) {
+    //   await mongoose.connect('mongodb://localhost:27017/your_database_name', {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    //   });
+    //   console.log("MongoDB Connected for seeding...");
+    // }
+
+    // Clear existing questions to prevent duplicates on re-run
+    await Question.deleteMany({});
+    console.log("Existing quiz questions cleared.");
+
+    // Insert all new questions
+    await Question.insertMany(allQuestions);
+    console.log(`Successfully seeded ${allQuestions.length} quiz questions.`);
+  } catch (error) {
+    console.error("Error seeding quiz questions:", error);
+  } finally {
+    // Disconnect if this script is run standalone
+    // await mongoose.disconnect();
+    // console.log("MongoDB Disconnected after seeding.");
+  }
+};
+
+// You can call this function from your main server file or run it as a standalone script.
+// To run standalone:
+// 1. Ensure your MongoDB connection is established (e.g., uncomment and configure the mongoose.connect part).
+// 2. Run: `node seeds/quizSeeder.js` (assuming this file is in `seeds` directory)
+// seedQuizQuestions(); // Uncomment this line if you want to run it directly from here for testing
+
+export default seedQuizQuestions; // Export for use in other parts of your application (e.g., server startup)
