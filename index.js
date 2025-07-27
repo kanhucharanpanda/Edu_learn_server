@@ -70,7 +70,7 @@ const app = express();
 // --- CORS Configuration ---
 const allowedOrigins = [
   "https://edu-learn-frontend-website.vercel.app",
-  optionsSuccessStatus: 200
+  
   // Your React frontend development server
   // Add other production origins here if needed
 ];
@@ -94,6 +94,7 @@ const corsOptions = {
     "X-Requested-With",
     "token",
   ],
+  optionsSuccessStatus: 200,
 };
 
 // using middlewares
