@@ -70,7 +70,8 @@ const app = express();
 // --- CORS Configuration ---
 const allowedOrigins = [
   "https://edu-learn-frontend-website.vercel.app",
-  "http://localhost:5173", // Your React frontend development server
+  optionsSuccessStatus: 200
+  // Your React frontend development server
   // Add other production origins here if needed
 ];
 
