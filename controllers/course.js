@@ -159,23 +159,59 @@ export const addProgress = TryCatch(async (req, res) => {
   });
 });
 
+// export const getYourProgress = TryCatch(async (req, res) => {
+//   const progress = await Progress.find({
+//     user: req.user._id,
+//     course: req.query.course,
+//   });
+
+//   if (!progress) return res.status(404).json({ message: "null" });
+
+//   const allLectures = (await Lecture.find({ course: req.query.course })).length;
+
+//   const completedLectures = progress[0].completedLectures.length;
+
+//   const courseProgressPercentage = (completedLectures * 100) / allLectures;
+
+//   res.json({
+//     courseProgressPercentage,
+//     completedLectures,
+//     allLectures,
+//     progress,
+//   });
+// });
+
+
+// In server/controllers/course.js
+
 export const getYourProgress = TryCatch(async (req, res) => {
-  const progress = await Progress.find({
+  // Use findOne to get a single document or null
+  const progress = await Progress.findOne({
     user: req.user._id,
     course: req.query.course,
   });
 
-  if (!progress) return res.status(404).json({ message: "null" });
-
   const allLectures = (await Lecture.find({ course: req.query.course })).length;
 
-  const completedLectures = progress[0].completedLectures.length;
+  // If no progress document is found, it means the user has 0% progress.
+  if (!progress) {
+    return res.json({
+      courseProgressPercentage: 0,
+      completedLectures: 0,
+      allLectures,
+      progress: { completedLectures: [] }, // Send a default progress object
+    });
+  }
 
-  const courseProgressPercentage = (completedLectures * 100) / allLectures;
+  const completedLecturesCount = progress.completedLectures.length;
+
+  // Prevent division by zero if a course has no lectures
+  const courseProgressPercentage =
+    allLectures > 0 ? (completedLecturesCount * 100) / allLectures : 0;
 
   res.json({
     courseProgressPercentage,
-    completedLectures,
+    completedLectures: completedLecturesCount,
     allLectures,
     progress,
   });
