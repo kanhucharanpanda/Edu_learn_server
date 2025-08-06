@@ -10,9 +10,19 @@ const schema = new mongoose.Schema({
     required: true,
   },
 
+  // image: {
+  //   type: String,
+  //   required: true,
+  // },
   image: {
-    type: String,
-    required: true,
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
   },
   price: {
     type: Number,
