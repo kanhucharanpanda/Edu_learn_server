@@ -9,9 +9,16 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // The new, correct schema
   video: {
-    type: String,
-    required: true,
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
   },
   course: {
     type: mongoose.Schema.Types.ObjectId,
