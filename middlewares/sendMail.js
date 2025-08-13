@@ -81,7 +81,7 @@ const sendMail = async (email, subject, data) => {
 </html>`;
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: `"EduLearn" <${process.env.Gmail}>`,
     to: email,
     //subject,
     html,
@@ -190,7 +190,7 @@ export const sendForgotMail = async (subject, data) => {
 </html>`;
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: `"EduLearn" <${process.env.Gmail}>`,
     to: data.email,
     subject,
     html,
@@ -307,7 +307,7 @@ export const sendWelcomeEmail = async (email) => {
 </html>`;
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: `"EduLearn" <${process.env.Gmail}>`,
     to: email,
     subject,
     html,
@@ -425,7 +425,7 @@ export const sendNewsletterEmail = async (
 </html>`;
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from:`"EduLearn" <${process.env.Gmail}>`,
     to: email,
     subject,
     html,
@@ -545,7 +545,7 @@ export const sendCourseNotificationEmail = async (email, courseData) => {
 </html>`;
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: `"EduLearn" <${process.env.Gmail}>`,
     to: email,
     subject,
     html,
@@ -565,7 +565,7 @@ export const sendSimpleEmail = async (email, subject, html) => {
   });
 
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: `"EduLearn" <${process.env.Gmail}>`,
     to: email,
     subject,
     html,
