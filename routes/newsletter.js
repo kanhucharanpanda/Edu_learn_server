@@ -6,6 +6,7 @@ import {
   getNewsletterStats,
   getAllSubscribers,
   updatePreferences,
+  unsubscribe,
 } from "../controllers/newsletter.js";
 import { isAuth } from "../middlewares/isAuth.js";
 import { isAdmin } from "../middlewares/isAdmin.js";
@@ -14,8 +15,9 @@ const router = express.Router();
 
 // Public routes
 router.post("/newsletter/subscribe", subscribeNewsletter);
-router.post("/newsletter/unsubscribe", unsubscribeNewsletter);
+router.get("/newsletter/unsubscribe", unsubscribeNewsletter);
 router.put("/newsletter/preferences", updatePreferences);
+router.post("/newsletter/unsubscribe", unsubscribe);
 
 // Admin routes
 router.get("/newsletter/stats", isAuth, isAdmin, getNewsletterStats);
