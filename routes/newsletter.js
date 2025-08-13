@@ -14,7 +14,7 @@ const router = express.Router();
 
 // Public routes
 router.post("/newsletter/subscribe", subscribeNewsletter);
-router.get("/newsletter/unsubscribe", unsubscribeNewsletter);
+router.post("/newsletter/unsubscribe", unsubscribeNewsletter);
 router.put("/newsletter/preferences", updatePreferences);
 
 // Admin routes
